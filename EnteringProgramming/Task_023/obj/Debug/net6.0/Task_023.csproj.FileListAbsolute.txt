@@ -1,0 +1,15 @@
+/home/artemfedotov/Education/EnteringProgramming/HomeWork/Task_023/bin/Debug/net6.0/Task_023
+/home/artemfedotov/Education/EnteringProgramming/HomeWork/Task_023/bin/Debug/net6.0/Task_023.deps.json
+/home/artemfedotov/Education/EnteringProgramming/HomeWork/Task_023/bin/Debug/net6.0/Task_023.runtimeconfig.json
+/home/artemfedotov/Education/EnteringProgramming/HomeWork/Task_023/bin/Debug/net6.0/Task_023.dll
+/home/artemfedotov/Education/EnteringProgramming/HomeWork/Task_023/bin/Debug/net6.0/Task_023.pdb
+/home/artemfedotov/Education/EnteringProgramming/HomeWork/Task_023/obj/Debug/net6.0/Task_023.csproj.AssemblyReference.cache
+/home/artemfedotov/Education/EnteringProgramming/HomeWork/Task_023/obj/Debug/net6.0/Task_023.GeneratedMSBuildEditorConfig.editorconfig
+/home/artemfedotov/Education/EnteringProgramming/HomeWork/Task_023/obj/Debug/net6.0/Task_023.AssemblyInfoInputs.cache
+/home/artemfedotov/Education/EnteringProgramming/HomeWork/Task_023/obj/Debug/net6.0/Task_023.AssemblyInfo.cs
+/home/artemfedotov/Education/EnteringProgramming/HomeWork/Task_023/obj/Debug/net6.0/Task_023.csproj.CoreCompileInputs.cache
+/home/artemfedotov/Education/EnteringProgramming/HomeWork/Task_023/obj/Debug/net6.0/Task_023.dll
+/home/artemfedotov/Education/EnteringProgramming/HomeWork/Task_023/obj/Debug/net6.0/refint/Task_023.dll
+/home/artemfedotov/Education/EnteringProgramming/HomeWork/Task_023/obj/Debug/net6.0/Task_023.pdb
+/home/artemfedotov/Education/EnteringProgramming/HomeWork/Task_023/obj/Debug/net6.0/Task_023.genruntimeconfig.cache
+/home/artemfedotov/Education/EnteringProgramming/HomeWork/Task_023/obj/Debug/net6.0/ref/Task_023.dll
