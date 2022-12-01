@@ -9,20 +9,54 @@
 # Вывод: 0
 
 n = int(input('Enter n: '))
-arr = []
+array = []
 
 for i in range(-n, n+1):
-    arr.append(i)
+    array.append(int(i))
 
-print(arr)
+print(array)
 
 m = input('Enter index: ')
-ind = []
+second_arr = []
 for i in m:
     if i != ' ':
-        ind.append(i)
+        second_arr.append(int(i))
 
-print(ind)
+temp = 1
+for i in second_arr:
+    for j in array:
+        if j == array[i]:
+            temp *= j
 
-for i in ind:
-    print(arr.index(i))
+print(temp)
+
+
+
+
+
+# def createArray():
+#     n = int(input('Enter n: '))
+#     array = []
+#     for i in range(-n, n+1):
+#         array.append(int(i))
+#     print(array)
+#     return array
+
+
+# def findWithIndex(array: list):
+#     m = input('Enter index: ')
+#     second_arr = []
+#     for i in m:
+#         if i != ' ':
+#             second_arr.append(int(i))
+
+#     temp = 1
+
+#     for i in second_arr:
+#         for j in array:
+#             if j == array[i]:
+#                 temp *= j
+
+#     print(temp)
+
+# findWithIndex(createArray())
