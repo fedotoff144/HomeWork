@@ -11,12 +11,12 @@
 import random
 from decimal import Decimal
 
-def num_list(n):
+def NumLst(n):
     for i in range(n):
         list.append(round(random.uniform(1,10),2))
     return list
 
-def difference():
+def Difference():
     for i in range(n):
         list_diff.append(list[i]%1)
     diff = (max(list_diff)) - (min(list_diff))
@@ -25,4 +25,4 @@ def difference():
 list = []
 list_diff = []
 n = int(input('Введите размер списка: '))
-print(f'{num_list(n)} => {difference()}')
+print(f'{NumLst(n)} => {Difference()}')

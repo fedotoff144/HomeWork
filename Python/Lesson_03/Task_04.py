@@ -9,7 +9,7 @@
 # - 2 -> 10
 
 
-def num_bin(n):
+def Binar(n):
     b = ''
     while n > 0:
         b = str(n % 2) + b
@@ -17,5 +17,5 @@ def num_bin(n):
     return b
 
 
-n = int(input('Введите число N: '))
-print(num_bin(n))
+n = int(input('Enter N: '))
+print(Binar(n))
