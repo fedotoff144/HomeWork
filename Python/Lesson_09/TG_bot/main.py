@@ -9,7 +9,7 @@ config_dict = get_default_config()
 config_dict['language'] = 'ru'
 
 #создание апи-ключа
-owm = OWM('01b13d5b0bf7f7c01f3944bb415b4cb4', config_dict)
+owm = OWM('', config_dict)
 mgr = owm.weather_manager()
 
 #создание бота
