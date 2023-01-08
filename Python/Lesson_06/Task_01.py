@@ -17,6 +17,6 @@ lst = []
 for i in range(n):
     lst.append(randint(1, 10))
 
-array = list(filter(lambda x: (x[i] % 2 != 0), lst))
+array = list(filter(lambda x: (lst.index(x) % 2 != 0), lst))
 
 print(f'Общий список: {lst} \nСписок элементов на нечетных индексах: {array} \nСумма элементов нечетных индексов: {sum(array)}')
