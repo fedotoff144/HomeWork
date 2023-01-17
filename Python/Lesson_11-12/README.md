@@ -1,0 +1,1 @@
+## Final project in subject Introduction to Python (seminars)
