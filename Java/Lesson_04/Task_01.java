@@ -2,7 +2,7 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
 
-public class Task_03 {
+public class Task_01 {
     public static void main(String[] args) {
         // Дан Deque состоящий из последовательности цифр.
         // Необходимо проверить, что последовательность цифр является палиндромом

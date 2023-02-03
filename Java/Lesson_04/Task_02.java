@@ -2,7 +2,7 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
 
-public class Task_04 {
+public class Task_02 {
     public static void main(String[] args) {
         // Даны два Deque представляющие два неотрицательных целых числа. Цифры хранятся
         // в обратном порядке,
