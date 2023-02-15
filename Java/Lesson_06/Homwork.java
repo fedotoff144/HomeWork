@@ -32,7 +32,7 @@ public class Homwork {
         parameter.put("RAM", 32);
 
         for (Laptop item : list) {
-            if ((item.getPrice() == parameter.get("price")) && (item.getRAM() == parameter.get("RAM"))) {
+            if ((item.getPrice() == parameter.get("price").intValue()) && (item.getRAM() == parameter.get("RAM").intValue())) {
                 System.out.println(item);
             }
         }
