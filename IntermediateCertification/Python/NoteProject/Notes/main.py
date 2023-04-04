@@ -1,15 +1,12 @@
-import note
-import create_csv as cc
-import file_write as fw
 from os.path import exists
-import file_output as fr
+import view
+import file_create as fc
 
 path = 'Notes.csv'
 valid = exists(path)
 
 if not valid:
-    cc.csv_create()
+    fc.csv_create()
 
-note.note()
-fw.write_csv()
-fr.file_read()
+while view.menu() != '0':
+    view.menu()

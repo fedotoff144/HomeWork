@@ -1,7 +1,7 @@
 import prettytable
 
 
-def file_read():
+def file_output():
     with open('Notes.csv', 'r') as data:
         table = prettytable.PrettyTable(['ID', 'Header', 'Note', 'Time create'])
         for line in data:
