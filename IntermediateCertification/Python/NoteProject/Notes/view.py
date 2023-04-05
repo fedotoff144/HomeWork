@@ -22,5 +22,5 @@ def menu():
         case _:
             print(f'Sorry I don\'t know this command {command!r}')
 
-    return command
+    return
 

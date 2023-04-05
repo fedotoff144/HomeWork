@@ -8,7 +8,5 @@ valid = exists(path)
 if not valid:
     fc.csv_create()
 
-# while view.menu() != '0':
-#     view.menu()
 
 view.menu()
