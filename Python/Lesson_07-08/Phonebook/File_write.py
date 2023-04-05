@@ -1,6 +1,5 @@
 from View import get_contact as gc
 
-
 info = gc()
 
 

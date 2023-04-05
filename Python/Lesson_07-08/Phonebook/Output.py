@@ -1,5 +1,6 @@
 from prettytable import PrettyTable
 
+
 def read_file():
     with open("Phonebook.csv", 'r') as data:
         table = PrettyTable(["Фамилия", "Имя", "Телефон", "Описание"])
