@@ -14,7 +14,7 @@ def read_all_notes():
 
 
 def update():
-    id_search = int(input('Enter note id to search: '))
+    id_search = str(input('Enter note id to search: '))
 
     return ' '
 
