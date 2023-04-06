@@ -16,11 +16,14 @@ def menu():
         case '3':
             print('update')
         case '4':
-            print('delete')
+            repository.delete(repository.find_note())
+            print('note deleted')
         case '0':
             print('Good Buy!')
+            command = False
         case _:
             print(f'Sorry I don\'t know this command {command!r}')
 
-    return
+    return command
+
 

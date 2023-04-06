@@ -1,4 +1,5 @@
 import note
+import re
 
 
 def write_csv():
@@ -18,10 +19,19 @@ def update():
 
     return ' '
 
-def find():
 
-    return ' '
+def find_note():
+    find_id = input('Enter id note please : ')
+    return find_id
 
 
-def delete():
-    return ' '
+def delete(find_id):
+    pattern = re.compile(re.escape(find_id))
+    with open('Notes.csv', 'r+') as f:
+        lines = f.readlines()
+        f.seek(0)
+        for line in lines:
+            result = pattern.search(line)
+            if result is None:
+                f.write(line)
+            f.truncate()
