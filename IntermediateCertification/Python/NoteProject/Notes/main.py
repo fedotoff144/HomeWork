@@ -9,7 +9,8 @@ if not valid:
     fc.csv_create()
 
 
-# while view.menu():
-#     print('Start program')
+while True:
+    if view.menu() == '0':
+        break
 
-view.menu()
+# view.menu()

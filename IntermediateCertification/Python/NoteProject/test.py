@@ -1,5 +1,6 @@
 import io
 import re
+import numpy as np
 
 
 # def read_all_notes():
@@ -13,10 +14,30 @@ import re
 # #     print('ok')
 #
 # with io.open('Notes.csv', encoding='utf-8') as file:
+#     count = 0
 #     for line in file:
-#         if a in line:
-#             print(line)
-#
+#         count += 1
+#     print(count)
+
+def set_note_id():
+    note_id = 1
+    with io.open('Notes.csv', encoding='utf-8') as file:
+        for line in file:
+            split_string = line.split(';')
+            if int(split_string[0].isdigit()) <= note_id:
+                note_id += 1
+            else:
+                continue
+
+    return note_id
+
+            # while split_string[0] <= note_id:
+            #     note_id += 1
+
+    # return print(note_id)
+
+
+print(set_note_id())
 #
 #
 # with open('f.txt') as f:
