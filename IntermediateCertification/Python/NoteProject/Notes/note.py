@@ -3,15 +3,15 @@ import io
 
 
 def note():
-    note = []
+    new_note = []
 
     header = input('Enter header for note please: ')
-    note.append(header)
+    new_note.append(header)
     body_note = input('Enter note please: ')
-    note.append(body_note)
-    note.append(datetime.datetime.now().strftime("%H:%M:%S %d-%m-%Y"))
+    new_note.append(body_note)
+    new_note.append(datetime.datetime.now().strftime("%H:%M:%S %d-%m-%Y"))
 
-    return note
+    return new_note
 
 
 def set_note_id():
@@ -27,7 +27,6 @@ def set_note_id():
     return note_id
 
 
-def create_full_note(note, note_id):
-    note.insert(0, note_id)
-    return note
-
+def create_full_note(note_body, note_id):
+    note_body.insert(0, note_id)
+    return note_body

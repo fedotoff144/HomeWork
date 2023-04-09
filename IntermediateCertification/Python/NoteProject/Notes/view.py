@@ -1,5 +1,6 @@
 import repository
 import file_output
+import note
 
 
 def menu():
@@ -10,15 +11,21 @@ def menu():
     command = input('Enter number for command please: ')
     match command:
         case '1':
-            repository.write_csv()
+            nt = note.note()
+            id_nt = note.set_note_id()
+            repository.write_csv(nt, id_nt)
+            print('Note added!')
         case '2':
             file_output.file_output()
         case '3':
-            repository.count_lines_in_file()
-            print('update')
+            note_id = input('Enter id note please: ')
+            repository.delete(note_id)
+            repository.write_csv(note.note(), note_id)
+            print('Note updated')
         case '4':
-            repository.delete(repository.find_note())
-            print('note deleted')
+            note_id = input('Enter id note please: ')
+            repository.delete(note_id)
+            print('Note deleted')
         case '0':
             print('Good Buy!')
         case _:

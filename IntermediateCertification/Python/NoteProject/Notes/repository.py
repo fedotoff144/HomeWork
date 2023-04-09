@@ -1,42 +1,30 @@
 import note
-import re
 import io
 
 
-def write_csv():
-    nt = note.create_full_note(note.note(),note.set_note_id())
+def write_csv(new_note, id_note):
+    nt = note.create_full_note(new_note, id_note)
     file = 'Notes.csv'
     with open(file, 'a', encoding='utf-8') as data:
         data.write(f'{nt[0]};{nt[1]};{nt[2]};{nt[3]}\n')
 
 
-def count_lines_in_file():
-    note_id = 1
+def find_note(note_id):
     with io.open('Notes.csv', encoding='utf-8') as file:
         for line in file:
             split_string = line.split(';')
-            while int(split_string[0]) <= note_id:
-                note_id += 1
+            if split_string[0] == note_id:
+                return split_string
+            else:
+                continue
 
 
-def find_note():
-    find_id = input('Enter id note please : ')
-    return find_id
-
-
-def update(find_id):
-    find_id = 0
-
-    return ' '
-
-
-def delete(find_id):
-    pattern = re.compile(re.escape(find_id))
+def delete(note_id):
     with open('Notes.csv', 'r+') as f:
-        lines = f.readlines()
+        new_f = f.readlines()
         f.seek(0)
-        for line in lines:
-            result = pattern.search(line)
-            if result is None:
+        for line in new_f:
+            split_line = line.split(';')
+            if split_line[0] != note_id:
                 f.write(line)
-            f.truncate()
+        f.truncate()
