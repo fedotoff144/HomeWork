@@ -4,13 +4,11 @@ public class Toy {
 
     private int id;
     private String name;
-    private int quantity;
     private int winning;
 
-    public Toy(int id, String name, int quantity, int winning){
+    public Toy(int id, String name, int winning){
         this.id = id;
         this.name = name;
-        this.quantity = quantity;
         this.winning = winning;
     }
 
@@ -22,8 +20,12 @@ public class Toy {
         return name;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public void setWinning(int winning) {
+        this.winning = winning;
     }
 
     public int getWinning(){
@@ -31,13 +33,7 @@ public class Toy {
     }
 
 
-    public void setName(String name){
-        this.name = name;
-    }
 
-    public void setQuantity(int quantity){
-        this.quantity = quantity;
-    }
 
 
     @Override
@@ -45,7 +41,6 @@ public class Toy {
         return "model.Toy{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", quantity=" + quantity +
                 ", winning=" + winning +
                 '}';
     }
