@@ -6,7 +6,7 @@ public class Toy {
     private String name;
     private int winning;
 
-    public Toy(int id, String name, int winning){
+    public Toy(int id, String name, int winning) {
         this.id = id;
         this.name = name;
         this.winning = winning;
@@ -16,11 +16,15 @@ public class Toy {
         return id;
     }
 
-    public String getName(){
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
         return name;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -28,12 +32,9 @@ public class Toy {
         this.winning = winning;
     }
 
-    public int getWinning(){
+    public int getWinning() {
         return winning;
     }
-
-
-
 
 
     @Override

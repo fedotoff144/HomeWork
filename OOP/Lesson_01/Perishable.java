@@ -1,9 +1,7 @@
-// package Seminars.Lesson_01;
-
 import java.sql.Date;
 
 public class Perishable extends Product {
-    private Date expireDate = new Date(2023-02-10);
+    private Date expireDate = new Date(2023 - 02 - 10);
 
     public Perishable(String name, double cost, Date expireDate) {
         super(name, cost);

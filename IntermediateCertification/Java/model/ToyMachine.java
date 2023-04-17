@@ -3,11 +3,11 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Toymachine {
+public class ToyMachine {
     private int toysCounter;
     private List<Toy> toysList;
 
-    public Toymachine(){
+    public ToyMachine(){
         this.toysCounter = 0;
         this.toysList = new ArrayList<Toy>();
     }

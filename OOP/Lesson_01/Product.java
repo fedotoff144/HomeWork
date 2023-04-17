@@ -1,5 +1,3 @@
-// package Seminars.Lesson_01;
-
 import java.sql.Date;
 
 public class Product {

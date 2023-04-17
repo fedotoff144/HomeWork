@@ -1,5 +1,3 @@
-// package Seminars.Lesson_01;
-
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -26,7 +24,7 @@ public class VendingMachine {
             localString.append(item.toString());
             localString.append("\n");
         }
-        localString.append("money in machine: "+ cash + "\n");
+        localString.append("money in machine: " + cash + "\n");
         return localString.toString();
     }
 
