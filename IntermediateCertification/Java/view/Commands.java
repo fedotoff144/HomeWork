@@ -4,7 +4,7 @@ public enum Commands {
     NONE,
     ADD_TOYS,
     WIN_TOY,
-    VIEW,
+    VIEW_TOYS,
     HELP,
     EXIT;
 }

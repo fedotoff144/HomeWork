@@ -12,6 +12,10 @@ public class Toy {
         this.winning = winning;
     }
 
+    public Toy(String name){
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }

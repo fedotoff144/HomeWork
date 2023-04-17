@@ -1,16 +1,61 @@
 package model;
 
+import java.io.*;
+import java.lang.reflect.Executable;
+import java.util.ArrayList;
 import java.util.List;
 
-public class FileOperation implements Operation{
+public class FileOperation implements Operation {
+    private String filename;
 
-    @Override
-    public void putAllToys(List<String> toyList) {
-
+    public FileOperation(String filename) {
+        this.filename = filename;
+        try (FileWriter writer = new FileWriter(filename, true)) {
+            writer.flush();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Override
-    public List<String> getAllToys() {
-        return null;
+    public List<String> readAllLines() {
+        List<String> lines = new ArrayList<>();
+        try {
+            File file = new File(filename);
+            FileReader fr = new FileReader(file);
+            BufferedReader reader = new BufferedReader(fr);
+            String line = reader.readLine();
+            if (line != null)
+                lines.add(line);
+            while (line != null) {
+                line = reader.readLine();
+                if (line != null) {
+                    lines.add(line);
+                }
+            }
+            fr.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return lines;
     }
+
+    @Override
+    public void saveAllLines(List<String> lines) {
+        try (FileWriter writer = new FileWriter(filename, false)) {
+            for (String line : lines) {
+                writer.write(line);
+                writer.append('\n');
+            }
+            writer.flush();
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+    }
+
 }
