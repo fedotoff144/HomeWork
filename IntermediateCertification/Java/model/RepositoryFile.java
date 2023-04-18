@@ -1,13 +1,22 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RepositoryFile implements Repository {
     private ToyMapper mapper = new ToyMapper();
     private FileOperation fileOperation;
 
     @Override
     public String addToy(Toy toy) {
+        List<Toy> toys = new ArrayList<>();
 
         return null;
+    }
+
+    @Override
+    public void saveToy(List<Toy> toys) {
+
     }
 
     public void getHelp() {
