@@ -22,8 +22,8 @@ public class RepositoryFile implements Repository {
     }
 
     @Override
-    public String CreateNote(Note note) {
-        List<Note> notes = new ArrayList<>();
+    public String CreateNote(Note note, List<Note> notes) {
+//        List<Note> notes = new ArrayList<>();
         int max = 0;
         for (Note item : notes) {
             int id = Integer.parseInt(item.getId());

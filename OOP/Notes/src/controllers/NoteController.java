@@ -14,7 +14,8 @@ public class NoteController {
     }
 
     public void saveNote(Note note) throws Exception {
-        repository.CreateNote(note);
+        List<Note> notes = repository.GetAllNotes();
+        repository.CreateNote(note, notes);
     }
 
     public Note readNote(String noteId) throws Exception {
