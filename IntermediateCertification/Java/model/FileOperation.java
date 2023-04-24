@@ -18,7 +18,7 @@ public class FileOperation implements Operation {
     }
 
     @Override
-    public List<String> readAllLines() {
+    public List<String> readFromFile() {
         List<String> lines = new ArrayList<>();
         try {
             File file = new File(filename);
@@ -43,8 +43,8 @@ public class FileOperation implements Operation {
     }
 
     @Override
-    public void saveAllLines(List<String> lines) {
-        try (FileWriter writer = new FileWriter(filename, false)) {
+    public void saveInFile(List<String> lines) {
+        try (FileWriter writer = new FileWriter(filename, true)) {
             for (String line : lines) {
                 writer.write(line);
                 writer.append('\n');

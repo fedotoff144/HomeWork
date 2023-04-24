@@ -12,8 +12,8 @@ public class Toy {
         this.winning = winning;
     }
 
-    public Toy(String name){
-        this.name = name;
+    public Toy() {
+
     }
 
     public int getId() {
@@ -43,10 +43,10 @@ public class Toy {
 
     @Override
     public String toString() {
-        return "model.Toy{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", winning=" + winning +
+        return "Игрушка " +
+                "№ " + id +
+                ", название-'" + name + '\'' +
+                ", процент выигрыша " + winning +
                 '}';
     }
 }
