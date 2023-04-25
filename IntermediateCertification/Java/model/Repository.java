@@ -3,9 +3,8 @@ package model;
 import java.util.List;
 
 public interface Repository {
-    String addToy(Toy toy);
-    void saveToy(String toys);
+    void addToy(Toy toy, String nameToy);
+    Toy winToy();
     List<Toy> getListToys();
-
     void getHelp();
 }

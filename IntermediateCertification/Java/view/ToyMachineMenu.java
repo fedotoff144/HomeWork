@@ -17,16 +17,29 @@ public class ToyMachineMenu {
         while (true) {
             System.out.println("\n<<<<<< Автомат игрушек >>>>>>\nКоманды для выбора: ADD_TOYS, WIN_TOY, VIEW_TOYS, HELP, EXIT");
             System.out.println("-------------------------------------------------------------");
-            String command = prompt("Введите вашу команду пожалуйста: ");
+            String command = prompt("Введите вашу команду: ");
             try {
-                com = Commands.valueOf((command.toUpperCase()));
+                com = Commands.valueOf(command.toUpperCase());
                 if (com == Commands.EXIT)
                     return;
                 switch (com) {
-                    case ADD_TOYS -> toyMachineController.addToy();
-                    case WIN_TOY -> System.out.println("WIN_TOY");
-                    case VIEW_TOYS -> toyMachineController.viewAllToys();
-                    case HELP -> toyMachineController.help();
+                    case ADD_TOYS: {
+                        String nameToy = prompt("Введите название игрушки: ");
+                        toyMachineController.addToy(nameToy);
+                        break;
+                    }
+                    case WIN_TOY: {
+                        System.out.println("WIN_TOY");
+                        break;
+                    }
+                    case VIEW_TOYS: {
+                        toyMachineController.viewAllToys();
+                        break;
+                    }
+                    case HELP: {
+                        toyMachineController.help();
+                        break;
+                    }
                 }
             } catch (Exception e) {
                 System.out.println("Данная команда не найдена! Повторите ввод.");

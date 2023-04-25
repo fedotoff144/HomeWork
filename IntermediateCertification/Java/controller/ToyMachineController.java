@@ -12,8 +12,8 @@ public class ToyMachineController {
         this.repository = repository;
     }
 
-    public void addToy(){
-        repository.saveToy(repository.addToy(new Toy()));
+    public void addToy(String nameToy){
+        repository.addToy(new Toy(), nameToy);
     }
 
     public void viewAllToys(){

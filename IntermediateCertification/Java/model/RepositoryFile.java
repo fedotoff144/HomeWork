@@ -13,25 +13,42 @@ public class RepositoryFile implements Repository {
     }
 
     @Override
-    public String addToy(Toy toy) {
-        String nameToy = view.ToyMachineMenu.prompt("Введите название игрушки: ");
-        List<Toy> toys = getListToys();
-        int winning = getIntRandom(100);
-        int newId = 1;
-        for(Toy item : toys){
-            int id = item.getId();
-            if(newId == id){
-                newId++;
-            }
+    public void addToy(Toy toy, String nameToy) {
+        int count = Integer.parseInt(view.ToyMachineMenu.prompt("Введите количество: "));
+        for (int i = 0; i < count; i++) {
+            int winning = getIntRandom(100);
+            int newId = findId();
+            toy.setId(newId);
+            toy.setName(nameToy);
+            toy.setWinning(winning);
+            saveToy(mapper.map(toy));
         }
-        toy.setId(newId);
-        toy.setName(nameToy);
-        toy.setWinning(winning);
-
-        return mapper.map(toy);
     }
 
     @Override
+    public Toy winToy() {
+        List<Toy> toys = getListToys();
+        int maxChance = 100;
+        for(Toy item : toys){
+            if (maxChance == item.getWinning()){
+
+            }
+        }
+        return null;
+    }
+
+    private int findId() {
+        List<Toy> toys = getListToys();
+        int newId = 1;
+        for (Toy item : toys) {
+            int id = item.getId();
+            if (newId == id) {
+                newId++;
+            }
+        }
+        return newId;
+    }
+
     public void saveToy(String toys) {
         List<String> toy = new ArrayList<>();
         toy.add(toys);
@@ -39,16 +56,16 @@ public class RepositoryFile implements Repository {
     }
 
     @Override
-    public List<Toy> getListToys(){
+    public List<Toy> getListToys() {
         List<String> toysInMachine = fileOperation.readFromFile();
         List<Toy> toysList = new ArrayList<>();
-        for(String item : toysInMachine){
+        for (String item : toysInMachine) {
             toysList.add(mapper.map(item));
         }
         return toysList;
     }
 
-    public int getIntRandom(int count){
+    public int getIntRandom(int count) {
         Random rnd = new Random();
         int rndNum = rnd.nextInt(count);
         return rndNum;
