@@ -1,8 +1,6 @@
 package view;
 
 import controller.ToyMachineController;
-import model.Toy;
-
 import java.util.Scanner;
 
 public class ToyMachineMenu {
@@ -25,14 +23,17 @@ public class ToyMachineMenu {
                 switch (com) {
                     case ADD_TOYS: {
                         String nameToy = prompt("Введите название игрушки: ");
-                        toyMachineController.addToy(nameToy);
+                        int count = Integer.parseInt(prompt("Введите количество: "));
+                        toyMachineController.addToy(nameToy, count);
                         break;
                     }
                     case WIN_TOY: {
-                        System.out.println("WIN_TOY");
+                        System.out.println("ok");
+                        toyMachineController.winToy();
                         break;
                     }
                     case VIEW_TOYS: {
+                        System.out.println("no");
                         toyMachineController.viewAllToys();
                         break;
                     }
@@ -51,7 +52,7 @@ public class ToyMachineMenu {
 
     public static String prompt(String massage) {
         Scanner scn = new Scanner(System.in);
-        System.out.println(massage);
+        System.out.print(massage);
         return scn.nextLine();
     }
 }

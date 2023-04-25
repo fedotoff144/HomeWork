@@ -5,16 +5,15 @@ import java.util.List;
 import java.util.Random;
 
 public class RepositoryFile implements Repository {
-    private ToyMapper mapper = new ToyMapper();
-    private FileOperation fileOperation;
+    private final ToyMapper mapper = new ToyMapper();
+    private final FileOperation fileOperation;
 
     public RepositoryFile(FileOperation fileOperation) {
         this.fileOperation = fileOperation;
     }
 
     @Override
-    public void addToy(Toy toy, String nameToy) {
-        int count = Integer.parseInt(view.ToyMachineMenu.prompt("Введите количество: "));
+    public void addToy(Toy toy, String nameToy, int count) {
         for (int i = 0; i < count; i++) {
             int winning = getIntRandom(100);
             int newId = findId();
@@ -26,15 +25,24 @@ public class RepositoryFile implements Repository {
     }
 
     @Override
-    public Toy winToy() {
+    public void winToy() {
         List<Toy> toys = getListToys();
-        int maxChance = 100;
-        for(Toy item : toys){
-            if (maxChance == item.getWinning()){
-
+        int maxChance = 0;
+        int tempId = 1;
+        for (Toy item : toys) {
+            if (maxChance < item.getWinning()) {
+                maxChance = item.getWinning();
+                tempId = item.getId();
             }
         }
-        return null;
+        for (Toy toy : toys) {
+            if (tempId == toy.getId()) {
+                System.out.print("\nПоздравляем! Вы выиграли: " + toy + '\n');
+                continue;
+            }
+            saveToy(mapper.map(toy));
+
+        }
     }
 
     private int findId() {
