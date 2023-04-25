@@ -33,10 +33,8 @@ public class FileOperation implements Operation {
                 }
             }
             fr.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
         }
         return lines;
     }

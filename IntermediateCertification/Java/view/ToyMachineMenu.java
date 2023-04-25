@@ -18,8 +18,6 @@ public class ToyMachineMenu {
             String command = prompt("Введите вашу команду: ");
             try {
                 com = Commands.valueOf(command.toUpperCase());
-                if (com == Commands.EXIT)
-                    return;
                 switch (com) {
                     case ADD_TOYS: {
                         String nameToy = prompt("Введите название игрушки: ");
@@ -28,12 +26,10 @@ public class ToyMachineMenu {
                         break;
                     }
                     case WIN_TOY: {
-                        System.out.println("ok");
                         toyMachineController.winToy();
                         break;
                     }
                     case VIEW_TOYS: {
-                        System.out.println("no");
                         toyMachineController.viewAllToys();
                         break;
                     }
@@ -41,14 +37,27 @@ public class ToyMachineMenu {
                         toyMachineController.help();
                         break;
                     }
+                    case EXIT: return;
                 }
-            } catch (Exception e) {
-                System.out.println("Данная команда не найдена! Повторите ввод.");
-            }
+            } catch (Exception ex) {
+                viewErrorMessage(ex.getMessage());}
         }
 
     }
 
+    private void viewErrorMessage(String textError) {
+
+    boolean flagMessage = textError.contains("No enum constant");
+
+    if (flagMessage) {
+
+        System.out.println("Комманда не найдена");
+    }
+    else {
+
+        System.out.println(textError);
+    }
+    }
 
     public static String prompt(String massage) {
         Scanner scn = new Scanner(System.in);
