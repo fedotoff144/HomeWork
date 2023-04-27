@@ -31,8 +31,6 @@ VALUES
         ("Vicont",3,1),
         ("Zuza",4,3);
 
-SELECT * from cats;
-SELECT * from shops;
 
 /*
 Используя JOIN-ы, выполните следующие операции:
@@ -46,27 +44,33 @@ SELECT * from shops;
 SELECT shopname FROM shops
 INNER JOIN cats
 ON shops.id = cats.shops_id
-                  WHERE cats.name = 'Murzik';
+WHERE cats.name = 'Murzik';
 
 -- Способ 2
 SELECT * FROM shops
-LEFT JOIN cats c on shops.id = c.shops_id
-                                   WHERE name = 'Murzik';
+LEFT JOIN cats AS c ON shops.id = c.shops_id
+WHERE name = 'Murzik';
 
 
 /*
  Вывести всех котиков по магазинам по id (условие соединения shops.id = cats.shops_id)
  */
-
+SELECT * FROM cats
+JOIN shops AS s ON s.id = cats.shops_id
+ORDER BY s.id;
 
 /*
  Вывести магазины, в которых НЕ продаются коты “Мурзик” и “Zuza”
  */
+SELECT s.shopname
+FROM `shops` AS s
+LEFT JOIN `cats` AS c
+ON s.`id` = c.`shops_id` AND c.name IN ('Murzik', 'Zuza')
+WHERE c.`name` IS NULL;
 
 
-------- Последнее задание, таблица:
+-- Последнее задание, таблица:
 
-DROP TABLE IF EXISTS Analysis:
 
 CREATE TABLE Analysis
 (
@@ -87,7 +91,6 @@ VALUES
 	('Общий анализ мочи', 25, 40, 2),
 	('Тест на COVID-19', 160, 210, 3);
 
-DROP TABLE IF EXISTS GroupsAn;
 
 CREATE TABLE GroupsAn
 (
@@ -106,7 +109,7 @@ VALUES
 
 SELECT * FROM groupsan;
 
-DROP TABLE IF EXISTS Orders;
+
 CREATE TABLE Orders
 (
 	ord_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -147,3 +150,15 @@ VALUES
 	('2020-02-12 07:10:54', 2),
 	('2020-02-12 07:20:19', 3),
 	('2020-02-12 07:35:38', 1);
+
+/*
+Вывести название и цену для всех анализов, которые продавались 5 февраля 2020 и всю следующую неделю.
+*/
+
+SELECT a.an_name AS name, a.an_cost AS cost, a.an_price AS price, o.ord_datetime AS date
+FROM analysis AS a
+JOIN orders AS o
+ON a.an_id = o.ord_an
+WHERE o.ord_datetime
+BETWEEN '2020-02-05' AND '2020-02-12';
+
