@@ -389,19 +389,26 @@ FROM users_view;
  указав имя и фамилию пользователя, количество отправленных сообщений и место в рейтинге
  (первое место у пользователя с максимальным количеством сообщений) . (используйте DENSE_RANK)
  */
+SELECT * FROM users;
+SELECT * FROM messages;
 
-SELECT *
-FROM users
-         LEFT JOIN messages ON users.id = messages.from_user_id;
 
-SELECT u.firstname,
+SELECT DISTINCT DENSE_RANK() OVER (ORDER BY buf_tab.count DESC ) AS dist, firstname, lastname, buf_tab.count
+FROM (SELECT u.firstname, u.lastname, m.body,
+       COUNT(m.body) OVER(PARTITION BY u.id) AS count
+FROM users AS u
+        JOIN messages AS m ON u.id = m.from_user_id) AS buf_tab;
+
+
+SELECT u.id, u.firstname,
        u.lastname,
        COUNT(m.body),
        DENSE_RANK()
-               OVER (PARTITION BY u.id ORDER BY COUNT(m.body)) AS 'rank'
+               OVER (PARTITION BY u.id ORDER BY COUNT(m.body)) AS 'dense_rank'
 FROM users AS u
          JOIN messages AS m ON u.id = m.from_user_id
 GROUP BY u.id;
+
 
 
 /*
@@ -410,9 +417,13 @@ GROUP BY u.id;
  (используйте LEAD или LAG)
  */
 
-SELECT d.body, d.created_at, d.lead, TIMEDIFF(d.created_at, d.lead) AS time_diff
+SELECT d.body, d.created_at, d.lead,
+       TIMEDIFF(d.created_at, d.lead) AS time_diff_lead,
+       d.lag,
+       TIMEDIFF(d.created_at, d.lag) AS time_dif_lag
 FROM
-(SELECT body, created_at, LEAD(created_at) OVER (ORDER BY created_at) AS 'lead'
+(SELECT body, created_at, LEAD(created_at) OVER (ORDER BY created_at) AS 'lead',
+       LAG(created_at) OVER (ORDER BY created_at) AS 'lag'
       FROM messages
       ORDER by created_at) AS d;
 
