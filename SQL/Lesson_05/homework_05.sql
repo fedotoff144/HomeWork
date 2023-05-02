@@ -343,30 +343,13 @@ VALUES (1, 'f', '1976-11-08', 9, 'Adriannaport'),
        (9, 'f', '1982-11-01', 9, 'Loweborough'),
        (10, 'm', '1977-05-14', NULL, 'New Nellaside');
 
-SELECT *
-FROM communities;
-SELECT *
-FROM friend_requests;
-SELECT *
-FROM likes;
-SELECT *
-FROM media;
-SELECT *
-FROM media_types;
-SELECT *
-FROM messages;
-SELECT *
-FROM profiles;
-SELECT *
-FROM users;
-SELECT *
-FROM users_communities;
+
 
 -- Homework
 
 /*
-    1. Создайте представление, в которое попадет информация о  пользователях (имя, фамилия, город и пол),
-    которые не старше 20 лет.
+ 1. Создайте представление, в которое попадет информация о  пользователях (имя, фамилия, город и пол),
+ которые не старше 20 лет.
  */
 
 CREATE OR REPLACE VIEW users_view AS
@@ -389,9 +372,6 @@ FROM users_view;
  указав имя и фамилию пользователя, количество отправленных сообщений и место в рейтинге
  (первое место у пользователя с максимальным количеством сообщений) . (используйте DENSE_RANK)
  */
-SELECT * FROM users;
-SELECT * FROM messages;
-
 
 SELECT DISTINCT DENSE_RANK() OVER (ORDER BY buf_tab.count DESC ) AS dist, firstname, lastname, buf_tab.count
 FROM (SELECT u.firstname, u.lastname, m.body,
