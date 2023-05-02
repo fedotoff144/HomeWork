@@ -365,7 +365,8 @@ FROM users_communities;
 -- Homework
 
 /*
-    1. Создайте представление, в которое попадет информация о  пользователях (имя, фамилия, город и пол), которые не старше 20 лет.
+    1. Создайте представление, в которое попадет информация о  пользователях (имя, фамилия, город и пол),
+    которые не старше 20 лет.
  */
 
 CREATE OR REPLACE VIEW users_view AS
@@ -374,10 +375,10 @@ SELECT u.firstname,
        p.hometown,
        p.gender,
        p.`birthday`,
-       (YEAR(CURRENT_DATE) - YEAR(p.birthday)) - (RIGHT(CURRENT_DATE, 5) < RIGHT(p.birthday, 5)) AS age
+       TRUNCATE((DATEDIFF(CURRENT_DATE(), p.`birthday`)/365), 0) AS full_years
 FROM users AS u
-         LEFT JOIN profiles AS p ON u.id = p.user_id
-WHERE (YEAR(CURRENT_DATE) - YEAR(p.birthday)) - (RIGHT(CURRENT_DATE, 5) < RIGHT(p.birthday, 5)) > 20;
+         JOIN profiles AS p ON u.id = p.user_id
+WHERE TRUNCATE((DATEDIFF(CURRENT_DATE(), p.`birthday`)/365), 0) < 20;
 
 SELECT *
 FROM users_view;
@@ -391,7 +392,7 @@ FROM users_view;
 
 SELECT *
 FROM users
-LEFT JOIN messages ON users.id = messages.from_user_id;
+         LEFT JOIN messages ON users.id = messages.from_user_id;
 
 SELECT u.firstname,
        u.lastname,
@@ -404,13 +405,14 @@ GROUP BY u.id;
 
 
 /*
- 3. Выберите все сообщения, отсортируйте сообщения по возрастанию даты отправления (created_at) и найдите разницу дат отправления
- между соседними сообщениями, получившегося списка. (используйте LEAD или LAG)
+ 3. Выберите все сообщения, отсортируйте сообщения по возрастанию даты отправления (created_at)
+ и найдите разницу дат отправления между соседними сообщениями, получившегося списка.
+ (используйте LEAD или LAG)
  */
 
-SELECT body, TIMEDIFF(d.created_at,d.next_date) as diff, d.created_at, d.next_date FROM
-(SELECT body, created_at,
-LEAD(created_at) OVER(ORDER BY created_at) next_date
-FROM messages ORDER by created_at) as d;
-
+SELECT d.body, d.created_at, d.lead, TIMEDIFF(d.created_at, d.lead) AS time_diff
+FROM
+(SELECT body, created_at, LEAD(created_at) OVER (ORDER BY created_at) AS 'lead'
+      FROM messages
+      ORDER by created_at) AS d;
 
