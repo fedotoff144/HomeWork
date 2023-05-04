@@ -372,14 +372,14 @@ FROM users_view;
  указав имя и фамилию пользователя, количество отправленных сообщений и место в рейтинге
  (первое место у пользователя с максимальным количеством сообщений) . (используйте DENSE_RANK)
  */
-
-SELECT DISTINCT DENSE_RANK() OVER (ORDER BY buf_tab.count DESC ) AS dist, firstname, lastname, buf_tab.count
+-- Решение №1
+SELECT DISTINCT DENSE_RANK() OVER (ORDER BY buf_tab.count DESC ) AS 'rank', firstname, lastname, buf_tab.count
 FROM (SELECT u.firstname, u.lastname, m.body,
        COUNT(m.body) OVER(PARTITION BY u.id) AS count
 FROM users AS u
         JOIN messages AS m ON u.id = m.from_user_id) AS buf_tab;
 
-
+-- Решение №2
 SELECT u.id, u.firstname,
        u.lastname,
        COUNT(m.body),

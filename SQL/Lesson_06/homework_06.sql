@@ -363,18 +363,23 @@ CREATE TABLE users_old
 
 INSERT INTO users_old(firstname, lastname, email)
 VALUES ('Gogen', 'Borow', 'brw000@example.com'),
-        ('Valery', 'Carton', 'cavalery@example.com');
+       ('Valery', 'Carton', 'cavalery@example.com');
 
-SELECT * FROM users_old;
+SELECT *
+FROM users_old;
 
 DELIMITER //
-CREATE PROCEDURE add_user(user_id INT)
+CREATE PROCEDURE ADD_USERS(user_id INT)
 BEGIN
-WITH new_users AS (SELECT * FROM users WHERE id = user_id)
+    SELECT * FROM users_old
+        
+
+
 
 END//
 DELIMITER ;
 
+# SELECT IF(users.id <> 2, *, NULL) FROM users WHERE id = 3;
 
 /*
  2. Создайте функцию hello(), которая будет возвращать приветствие, в зависимости от текущего времени суток.
