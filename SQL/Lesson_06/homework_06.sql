@@ -2,7 +2,7 @@ CREATE DATABASE homework_06;
 USE homework_06;
 
 -- пользователи
-
+DROP TABLE IF EXISTS users;
 CREATE TABLE users
 (
     id        SERIAL PRIMARY KEY, -- SERIAL = BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE
@@ -22,6 +22,7 @@ VALUES (1, 'Reuben', 'Nienow', 'arlo50@example.org'),
        (8, 'Jaida', 'Kilback', 'johnathan.wisozk@example.com'),
        (9, 'Mireya', 'Orn', 'missouri87@example.org'),
        (10, 'Jordyn', 'Jerde', 'edach@example.com');
+
 
 -- сообщения
 
@@ -99,6 +100,7 @@ VALUES (1, 2,
 
 -- заявки на дружбу
 
+DROP TABLE IF EXISTS friend_requests;
 CREATE TABLE friend_requests
 (
     initiator_user_id BIGINT UNSIGNED NOT NULL,
@@ -125,6 +127,7 @@ VALUES (1, 10, 'approved', '2023-01-05 06:40:37', '2023-01-05 16:28:19'),
 
 -- сообщества
 
+DROP TABLE IF EXISTS communities;
 CREATE TABLE communities
 (
     id   SERIAL PRIMARY KEY,
@@ -146,6 +149,7 @@ VALUES ('atque'),
 
 -- пользователи сообщества
 
+DROP TABLE IF EXISTS users_communities;
 CREATE TABLE users_communities
 (
     user_id      BIGINT UNSIGNED NOT NULL,
@@ -214,6 +218,7 @@ VALUES ('Photo'),
 
 -- медиа
 
+DROP TABLE IF EXISTS media;
 CREATE TABLE media
 (
     id            SERIAL PRIMARY KEY,
@@ -287,6 +292,7 @@ VALUES (3, 1, 'a.avi',
 
 -- лайки медиа
 
+DROP TABLE IF EXISTS likes;
 CREATE TABLE likes
 (
     id       SERIAL PRIMARY KEY,
@@ -320,6 +326,7 @@ VALUES (1, 1),
 
 -- профиль пользователя
 
+DROP TABLE IF EXISTS profiles;
 CREATE TABLE `profiles`
 (
     user_id  SERIAL PRIMARY KEY,
@@ -353,6 +360,7 @@ VALUES (1, 'f', '1976-11-08', 9, 'Adriannaport'),
  (использование транзакции с выбором commit или rollback – обязательно).
  */
 
+DROP TABLE IF EXISTS users_old;
 CREATE TABLE users_old
 (
     id        SERIAL PRIMARY KEY, -- SERIAL = BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE
@@ -369,17 +377,23 @@ SELECT *
 FROM users_old;
 
 DELIMITER //
+DROP PROCEDURE IF EXISTS ADD_USERS;
 CREATE PROCEDURE ADD_USERS(user_id INT)
 BEGIN
-    SELECT * FROM users_old
-        
+    START TRANSACTION;
+    INSERT INTO users_old SELECT * FROM users WHERE users.id = user_id;
+    DELETE FROM users WHERE id = user_id;
+    COMMIT;
 
-
-
-END//
+END //
 DELIMITER ;
 
-# SELECT IF(users.id <> 2, *, NULL) FROM users WHERE id = 3;
+CALL ADD_USERS(5);
+
+SELECT *
+FROM users_old;
+SELECT *
+FROM users;
 
 /*
  2. Создайте функцию hello(), которая будет возвращать приветствие, в зависимости от текущего времени суток.
@@ -388,74 +402,28 @@ DELIMITER ;
  с 18:00 до 00:00 — "Добрый вечер", с 00:00 до 6:00 — "Доброй ночи".
  */
 
+DROP FUNCTION IF EXISTS hello;
+DELIMITER //
+CREATE FUNCTION hello()
+    RETURNS VARCHAR(12)
+    DETERMINISTIC
+BEGIN
+    DECLARE time_is_right_now VARCHAR(8);
+    DECLARE answer VARCHAR(12);
+    SET time_is_right_now = CURTIME();
+    CASE
+        WHEN time_is_right_now BETWEEN '06:00:00' AND '12:00:00' THEN SET answer = 'Доброе утро';
+        WHEN time_is_right_now BETWEEN '12:00:00' AND '18:00:00' THEN SET answer = 'Добрый день';
+        WHEN time_is_right_now BETWEEN '18:00:00' AND '24:00:00' THEN SET answer = 'Добрый вечер';
+        ELSE SET answer = 'Доброй ночи';
+        END CASE;
+    RETURN answer;
+END//
+DELIMITER ;
+
+SELECT hello();
+
 
 /*
  3. Доп. Задача: Создайте процедуру, которая выведет id и его коэффициент популярности для всех пользователей из таблицы users
  */
-
-
-/*
- 1. Создайте представление, в которое попадет информация о  пользователях (имя, фамилия, город и пол),
- которые не старше 20 лет.
- */
-
-CREATE OR REPLACE VIEW users_view AS
-SELECT u.firstname,
-       u.lastname,
-       p.hometown,
-       p.gender,
-       p.`birthday`,
-       TRUNCATE((DATEDIFF(CURRENT_DATE(), p.`birthday`) / 365), 0) AS full_years
-FROM users AS u
-         JOIN profiles AS p ON u.id = p.user_id
-WHERE TRUNCATE((DATEDIFF(CURRENT_DATE(), p.`birthday`) / 365), 0) < 20;
-
-SELECT *
-FROM users_view;
-
-
-/*
- 2. Найдите кол-во,  отправленных сообщений каждым пользователем и  выведите ранжированный список пользователей,
- указав имя и фамилию пользователя, количество отправленных сообщений и место в рейтинге
- (первое место у пользователя с максимальным количеством сообщений) . (используйте DENSE_RANK)
- */
-
-SELECT DISTINCT DENSE_RANK() OVER (ORDER BY buf_tab.count DESC ) AS dist, firstname, lastname, buf_tab.count
-FROM (SELECT u.firstname,
-             u.lastname,
-             m.body,
-             COUNT(m.body) OVER (PARTITION BY u.id) AS count
-      FROM users AS u
-               JOIN messages AS m ON u.id = m.from_user_id) AS buf_tab;
-
-
-SELECT u.id,
-       u.firstname,
-       u.lastname,
-       COUNT(m.body),
-       DENSE_RANK()
-               OVER (PARTITION BY u.id ORDER BY COUNT(m.body)) AS 'dense_rank'
-FROM users AS u
-         JOIN messages AS m ON u.id = m.from_user_id
-GROUP BY u.id;
-
-
-/*
- 3. Выберите все сообщения, отсортируйте сообщения по возрастанию даты отправления (created_at)
- и найдите разницу дат отправления между соседними сообщениями, получившегося списка.
- (используйте LEAD или LAG)
- */
-
-SELECT d.body,
-       d.created_at,
-       d.lead,
-       TIMEDIFF(d.created_at, d.lead) AS time_diff_lead,
-       d.lag,
-       TIMEDIFF(d.created_at, d.lag)  AS time_dif_lag
-FROM (SELECT body,
-             created_at,
-             LEAD(created_at) OVER (ORDER BY created_at) AS 'lead',
-             LAG(created_at) OVER (ORDER BY created_at)  AS 'lag'
-      FROM messages
-      ORDER by created_at) AS d;
-
