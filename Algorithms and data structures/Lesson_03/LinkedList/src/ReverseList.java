@@ -36,7 +36,7 @@ class Main {
     }
 
     public static void main(String[] args) {
-        int[] values = {1, 2, 3, 4};
+        int[] values = {1, 2, 3, 4, 5, 6};
 
         Node head = null;
         for (int i = values.length - 1; i >= 0; i--) {
