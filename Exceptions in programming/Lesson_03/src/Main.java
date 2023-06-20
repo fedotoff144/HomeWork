@@ -1,40 +1,11 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class Main {
-    static String prompt() {
-        Scanner scn = new Scanner(System.in);
-        String dataLine = scn.nextLine();
-        return dataLine;
-    }
 
     static String[] splitData(String data) {
+
         return data.trim().split("\\s+");
-    }
-
-    static boolean isCellEmpty(ArrayList<Object> list, int index) {
-        if (list.get(index) != null) {
-            return false;
-        }
-        return true;
-    }
-
-    static boolean isValidGender(String gender) {
-        if (gender.length() == 1) {
-            if (gender.contains("f") || gender.contains("m")) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    static boolean isPhoneNumber(String data) {
-        try {
-            Integer.parseInt(data);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
     }
 
     static boolean isValidateDate(String date) {
@@ -42,12 +13,15 @@ public class Main {
         return date.matches(regex);
     }
 
+    static boolean isValidName(String data) {
+        return data.matches("[a-zA-Z]+");
+    }
+
     static String[] dataInput() {
-        String[] data;
 
         while (true) {
             System.out.println("Введите свои Фамилию, Имя, Отчество, дату рождения в формате dd.mm.yyyy, номер телефона и пол в формате f/m");
-            data = splitData(prompt());
+            String[] data = splitData(prompt());
             if (data.length < 6) {
                 System.out.println("Количество данных меньше, чем нужно. Повторите ввод!");
             } else if (data.length > 6) {
@@ -60,27 +34,8 @@ public class Main {
 
 
     public static void main(String[] args) {
+//        Fedotov Artem Gennadievich 06.01.1987 9607253166 m
 
-        String[] data = dataInput();
-        ArrayList<Object> fullLine = new ArrayList<>(6);
-
-        for (String item : data) {
-            if (isValidGender(item)) {
-                fullLine.add(5, item);
-            } else if (isValidateDate(item)) {
-                fullLine.add(3, item);
-            } else if (isPhoneNumber(item)) {
-                fullLine.add(4, item);
-            }
-        }
-
-        System.out.println("Stage 2");
-
-        for (Object item : fullLine) {
-            System.out.println(item);
-        }
-
-        System.out.println(fullLine.get(5));
 
     }
 }
