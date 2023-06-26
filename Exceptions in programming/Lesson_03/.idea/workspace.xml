@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1f183b13-356b-4fba-91b4-e4a37b52a6cf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DataController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Data.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/DataMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Validation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/ValidationData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/ViewData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OOP/Notes/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../OOP/Notes/.idea/misc.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1f183b13-356b-4fba-91b4-e4a37b52a6cf" name="Changes" comment="all do again part 2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,12 +44,32 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1687287879210</updated>
-      <workItem from="1687287880515" duration="2700000" />
+      <workItem from="1687287880515" duration="3111000" />
     </task>
+    <task id="LOCAL-00001" summary="all do again">
+      <created>1687290950582</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1687290950582</updated>
+    </task>
+    <task id="LOCAL-00002" summary="all do again part 2">
+      <created>1687291009329</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1687291009329</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="all do again" />
+    <MESSAGE value="all do again part 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="all do again part 2" />
   </component>
   <component name="com.github.evgenys91.machinet.common.dslhistory.DslHistoryState">
     <option name="historyDtoById">
