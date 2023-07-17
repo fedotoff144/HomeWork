@@ -1,5 +1,8 @@
 package Controller;
 
+import Model.Animal;
+import Model.PetAnimal;
+import Model.WildAnimal;
 import View.AnimalRegistryView;
 
 public class AnimalRegistryController {
@@ -11,7 +14,8 @@ public class AnimalRegistryController {
 
             switch (choice) {
                 case 1:
-//                    addAnimal();
+                    int choiceAnimal = view.choiceAnimal();
+                    addAnimal(choiceAnimal);
                     break;
                 case 2:
 //                    findAnimalClass();
@@ -27,9 +31,32 @@ public class AnimalRegistryController {
                     break;
                 default:
 //                    view.printError("Неверный выбор");
-                    break;
+//                    break;
             }
         }
+    }
+
+    public void addAnimal(int choice){
+        if (1 <= choice && choice <= 3){
+            Animal animal = view.addAnimal();
+            PetAnimal petAnimal = view.addPetAnimal(animal);
+            if (choice == 1){
+                view.addDog(petAnimal);
+            } else if (choice == 2) {
+                view.addCat(petAnimal);
+            }
+            view.addHamster(petAnimal);
+        }else if (4 <= choice && choice <= 6){
+            Animal animal = view.addAnimal();
+            WildAnimal wildAnimal = view.addWildAnimal(animal);
+            if (choice == 4){
+                view.addHorse(wildAnimal);
+            } else if (choice == 5) {
+                view.addCamel(wildAnimal);
+            }
+            view.addDonkey(wildAnimal);
+        }
+        start();
     }
 
 }

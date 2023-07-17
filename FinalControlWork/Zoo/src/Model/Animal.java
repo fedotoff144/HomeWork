@@ -1,9 +1,8 @@
 package Model;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
-public abstract class Animal {
+public class Animal {
     private String name;
     private int age;
     private ArrayList<String> commands;
@@ -17,6 +16,7 @@ public abstract class Animal {
     public String getName(){
         return name;
     }
+
     public int getAge(){
         return age;
     }

@@ -1,16 +1,18 @@
 package View;
 
+import Model.*;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AnimalRegistryView {
     private Scanner scanner;
 
-    public AnimalRegistryView(){
+    public AnimalRegistryView() {
         scanner = new Scanner(System.in);
     }
 
-    public int showMenu(){
+    public int showMenu() {
         System.out.println("Выберите действие:\n" +
                 "1. Завести новое животное\n" +
                 "2. Показать всех животных\n" +
@@ -20,87 +22,122 @@ public class AnimalRegistryView {
         return scanner.nextInt();
     }
 
-    public void addAnimal(){
-        while (true){
-            System.out.println("Выберите животное: 1. Собака\n2. Кошка\n3. Хомяк\n4. Лошадь\n5. Верблюд\n6. Осел");
-            int choiseAnimal = scanner.nextInt();
-            if (choiseAnimal == 1){
-
-            }
+    public int choiceAnimal(){
+        System.out.println("Выберите животное: \n" +
+                "1. Собака\n" +
+                "2. Кошка\n" +
+                "3. Хомяк\n" +
+                "4. Лошадь\n" +
+                "5. Верблюд\n" +
+                "6. Осел\n" +
+                "0. <-- Назад");
+        int choice = validateInputNum();
+        if(choice < 0 || 7 <= choice){
+            System.out.println("Ошибка! Повторите ввод");
+            choiceAnimal();
         }
+        return choice;
     }
-
-    public String setName(){
+    public Animal addAnimal() {
         System.out.println("Введите имя животного: ");
-        return scanner.next();
-    }
-    public int setAge(){
+        String name = setString();
         System.out.println("Введите возраст животного: ");
-        return validateInputNum();
+        int age = validateInputNum();
+        Animal animal = new Animal(name, age);
+        return animal;
+
     }
-    public ArrayList<String> setCommands(ArrayList<String> listOfCommands){
-        System.out.println("Введите команду для животного: ");
-        String command = scanner.next();
-        listOfCommands.add(command);
-        return listOfCommands;
-    }
-    public boolean setPredator(){
-        System.out.println("Является ли вьючное животное хищником?\n1. да\n2. нет");
-        boolean predator = true;
-        int answer = validateInputNum();
-        if (answer != 1){
-            predator = false;
-        }
-        return predator;
-    }
-    public String setColor(){
+
+
+    //    add methods for pet animals
+    public PetAnimal addPetAnimal(Animal animal) {
         System.out.println("Введите цвет домашнего животного: ");
-        return scanner.next();
+        String color = setString();
+        PetAnimal petAnimal = new PetAnimal(animal.getName(), animal.getAge(), color);
+        return petAnimal;
     }
-    public String setBreed(){
-    System.out.println("Введите породу собаки: ");
-    return scanner.next();
+
+    public Dog addDog(PetAnimal animal) {
+        System.out.println("Введите породу собаки: ");
+        String breed = setString();
+        return new Dog(animal.getName(), animal.getAge(), animal.getColor(), breed);
     }
-    public int setWeight(){
+
+    public Cat addCat(PetAnimal animal) {
         System.out.println("Введите вес кота: ");
-        return validateInputNum();
+        int weight = validateInputNum();
+        return new Cat(animal.getName(), animal.getAge(), animal.getColor(), weight);
     }
 
-    public boolean setHasTail(){
+    public Hamster addHamster(PetAnimal animal) {
         System.out.println("Есть ли у хомяка хвост?\n1. да\n2. нет");
-        boolean hasTail = true;
-        int answer = validateInputNum();
-        if (answer != 1){
-            hasTail = false;
-        }
-        return hasTail;
-    }
-    public int setSpeed(){
-    System.out.println("Введите скорость лошади: ");
-        return validateInputNum();
+        boolean hasTail = setBoolChoice();
+        return new Hamster(animal.getName(), animal.getAge(), animal.getColor(), hasTail);
     }
 
-    public int setDistance(){
-    System.out.println("Введите максимальное расстояние для верблюда: ");
-        return validateInputNum();
+    //    add methods for wild animals
+    public WildAnimal addWildAnimal(Animal animal) {
+        System.out.println("Является ли вьючное животное хищником?\n1. да\n2. нет");
+        boolean predator = setBoolChoice();
+        WildAnimal wildAnimal = new WildAnimal(animal.getName(), animal.getAge(), predator);
+        return wildAnimal;
     }
 
-    public int setLiftingCapacity(){
+    public Horse addHorse(WildAnimal animal) {
+        System.out.println("Введите скорость лошади: ");
+        int speed = validateInputNum();
+        return new Horse(animal.getName(), animal.getAge(), animal.getPredator(), speed);
+    }
+
+    public Camel addCamel(WildAnimal animal) {
+        System.out.println("Введите максимальное расстояние для верблюда: ");
+        int distance = validateInputNum();
+        return new Camel(animal.getName(), animal.getAge(), animal.getPredator(), distance);
+    }
+
+    public Donkey addDonkey(WildAnimal animal) {
         System.out.println("Введите вес, который может перевозить осел: ");
-        return validateInputNum();
+        int weight = validateInputNum();
+        return new Donkey(animal.getName(), animal.getAge(), animal.getPredator(), weight);
     }
 
-    public int validateInputNum(){
+
+    //    methods for validate data
+    public String setString() {
+        String str = scanner.next();
+        if (str.isEmpty() || str.matches("^[а-яА-Я ]+$")) {
+            System.out.println("Ошибка! Повторите ввод");
+            setString();
+        }
+        return str;
+    }
+
+    public boolean setBoolChoice() {
+        boolean boolChoice = true;
+        int answer = validateInputNum();
+        if (answer != 1) {
+            boolChoice = false;
+        }
+        return boolChoice;
+    }
+
+    public int validateInputNum() {
         int input;
-        while (true){
-            try{
+        while (true) {
+            try {
                 input = scanner.nextInt();
                 break;
-            }catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Ошибка! " + e + " Повторите ввод");
             }
         }
         return input;
     }
 
+    public ArrayList<String> setCommands(ArrayList<String> listOfCommands) {
+        System.out.println("Введите команду для животного: ");
+        String command = scanner.next();
+        listOfCommands.add(command);
+        return listOfCommands;
+    }
 }
