@@ -7,6 +7,9 @@ import View.AnimalRegistryView;
 
 public class AnimalRegistryController {
     private AnimalRegistryView view;
+    public AnimalRegistryController() {
+        view = new AnimalRegistryView();
+    }
 
         public void start() {
         while (true) {
@@ -27,11 +30,10 @@ public class AnimalRegistryController {
 //                    addAnimalCommand();
                     break;
                 case 0:
+                    System.out.println("Завершение программы...");
                     System.exit(0);
                     break;
                 default:
-//                    view.printError("Неверный выбор");
-//                    break;
             }
         }
     }
@@ -44,8 +46,9 @@ public class AnimalRegistryController {
                 view.addDog(petAnimal);
             } else if (choice == 2) {
                 view.addCat(petAnimal);
+            } else {
+                view.addHamster(petAnimal);
             }
-            view.addHamster(petAnimal);
         }else if (4 <= choice && choice <= 6){
             Animal animal = view.addAnimal();
             WildAnimal wildAnimal = view.addWildAnimal(animal);
@@ -53,8 +56,9 @@ public class AnimalRegistryController {
                 view.addHorse(wildAnimal);
             } else if (choice == 5) {
                 view.addCamel(wildAnimal);
+            }else {
+                view.addDonkey(wildAnimal);
             }
-            view.addDonkey(wildAnimal);
         }
         start();
     }

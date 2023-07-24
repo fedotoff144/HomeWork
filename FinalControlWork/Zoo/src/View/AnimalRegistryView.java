@@ -1,6 +1,7 @@
 package View;
 
 import Model.*;
+import Model.Animals.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -18,7 +19,7 @@ public class AnimalRegistryView {
                 "2. Показать всех животных\n" +
                 "3. Показать животное\n" +
                 "4. Обучить животное новым командам\n" +
-                "0. Выйти из программы");
+                "0. <-- Выход");
         return scanner.nextInt();
     }
 
@@ -39,12 +40,12 @@ public class AnimalRegistryView {
         return choice;
     }
     public Animal addAnimal() {
+        int id = 0;
         System.out.println("Введите имя животного: ");
         String name = setString();
         System.out.println("Введите возраст животного: ");
         int age = validateInputNum();
-        Animal animal = new Animal(name, age);
-        return animal;
+        return new Animal(id, name, age);
 
     }
 
@@ -53,59 +54,59 @@ public class AnimalRegistryView {
     public PetAnimal addPetAnimal(Animal animal) {
         System.out.println("Введите цвет домашнего животного: ");
         String color = setString();
-        PetAnimal petAnimal = new PetAnimal(animal.getName(), animal.getAge(), color);
-        return petAnimal;
+        return new PetAnimal(animal.getId(), animal.getName(), animal.getAge(), color);
     }
 
     public Dog addDog(PetAnimal animal) {
         System.out.println("Введите породу собаки: ");
         String breed = setString();
-        return new Dog(animal.getName(), animal.getAge(), animal.getColor(), breed);
+        return new Dog(animal.getId(),animal.getName(), animal.getAge(), animal.getColor(), breed);
     }
 
     public Cat addCat(PetAnimal animal) {
         System.out.println("Введите вес кота: ");
         int weight = validateInputNum();
-        return new Cat(animal.getName(), animal.getAge(), animal.getColor(), weight);
+        return new Cat(animal.getId(), animal.getName(), animal.getAge(), animal.getColor(), weight);
     }
 
     public Hamster addHamster(PetAnimal animal) {
         System.out.println("Есть ли у хомяка хвост?\n1. да\n2. нет");
         boolean hasTail = setBoolChoice();
-        return new Hamster(animal.getName(), animal.getAge(), animal.getColor(), hasTail);
+        return new Hamster(animal.getId(), animal.getName(), animal.getAge(), animal.getColor(), hasTail);
     }
 
     //    add methods for wild animals
     public WildAnimal addWildAnimal(Animal animal) {
         System.out.println("Является ли вьючное животное хищником?\n1. да\n2. нет");
         boolean predator = setBoolChoice();
-        WildAnimal wildAnimal = new WildAnimal(animal.getName(), animal.getAge(), predator);
-        return wildAnimal;
+        return new WildAnimal(animal.getId(), animal.getName(), animal.getAge(), predator);
     }
 
     public Horse addHorse(WildAnimal animal) {
         System.out.println("Введите скорость лошади: ");
         int speed = validateInputNum();
-        return new Horse(animal.getName(), animal.getAge(), animal.getPredator(), speed);
+        Horse horse = new Horse(animal.getId(), animal.getName(), animal.getAge(), animal.getPredator(), speed);
+        System.out.println(horse);
+        return horse;
     }
 
     public Camel addCamel(WildAnimal animal) {
         System.out.println("Введите максимальное расстояние для верблюда: ");
         int distance = validateInputNum();
-        return new Camel(animal.getName(), animal.getAge(), animal.getPredator(), distance);
+        return new Camel(animal.getId(), animal.getName(), animal.getAge(), animal.getPredator(), distance);
     }
 
     public Donkey addDonkey(WildAnimal animal) {
         System.out.println("Введите вес, который может перевозить осел: ");
         int weight = validateInputNum();
-        return new Donkey(animal.getName(), animal.getAge(), animal.getPredator(), weight);
+        return new Donkey(animal.getId(), animal.getName(), animal.getAge(), animal.getPredator(), weight);
     }
 
 
     //    methods for validate data
     public String setString() {
         String str = scanner.next();
-        if (str.isEmpty() || str.matches("^[а-яА-Я ]+$")) {
+        if (str.isEmpty() || !str.matches("^[а-яА-Я ]+$")) {
             System.out.println("Ошибка! Повторите ввод");
             setString();
         }
@@ -132,6 +133,11 @@ public class AnimalRegistryView {
             }
         }
         return input;
+    }
+
+    public int addId(){
+        int id = 0;
+        return id;
     }
 
     public ArrayList<String> setCommands(ArrayList<String> listOfCommands) {
