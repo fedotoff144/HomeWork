@@ -9,7 +9,7 @@ b = 12
 c = 6
 MESSAGE = ''
 
-if ((a + b) < c) or ((a + c) < b) or ((b + c) < a):
+if ((a + b) <= c) or ((a + c) <= b) or ((b + c) <= a):
     MESSAGE = 'This triangle don\'t excist'
 elif (a == b) and (b == c) and (c == a):
     MESSAGE = 'Triangle is equilateral'

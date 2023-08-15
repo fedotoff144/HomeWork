@@ -8,7 +8,7 @@ MAX_LIMIT = 100_000
 MIN_LIMIT = 0
 
 if num <= MIN_LIMIT or MAX_LIMIT <= num:
-    MESSAGE = 'Number outside, re-enter!'
+    MESSAGE = 'Number outside!'
 elif num == 1:
     MESSAGE = '1 is not prime and not composite number'
 elif (num != 2 and num != 3 and num != 5) and (num % 2 == 0 or num % 3 == 0 or num % 5 == 0):
