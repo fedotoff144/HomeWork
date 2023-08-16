@@ -12,9 +12,14 @@ HEX_DIV = 16
 my_arr = []
 res = ''
 
+# заполняем массив числами от 0 до 15
+
 while process_num > 0:
     my_arr.insert(0, process_num % HEX_DIV)
     process_num //= HEX_DIV
+
+
+# переводим числа из массива согласно словарю 16-ричной системе
 
 for element in my_arr:
     res += str(my_dict.get(element))
