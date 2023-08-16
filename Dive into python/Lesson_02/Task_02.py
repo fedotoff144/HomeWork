@@ -10,3 +10,10 @@
 # Вывод:
 # 5/6 1/6
 
+fract_num_1 = input('Введите первое число: ')
+fract_num_2 = input('Введите второе число: ')
+
+num_1 = fract_num_1.split('/')
+num_2 = fract_num_2.split('/')
+
+print(num_1, num_2)
