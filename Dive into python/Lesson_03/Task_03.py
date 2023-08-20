@@ -4,19 +4,40 @@
 #
 # *Верните все возможные варианты комплектации рюкзака.
 
+
 my_stuff = {'rope': 3, 'pan': 5, 'tent': 10, 'plate': 1,
             'cup': 1, 'pillow': 4, 'towel': 2, 'laptop': 7,
             'kettle': 3, 'pot': 4, 'blanket': 3, 'water': 5}
 
+# сортируем словарь для наиболее эффективной компановки
+my_stuff_sort = dict(sorted(my_stuff.items(), reverse=True, key=lambda x: x[1]))
 
-def max_weight(load_capacity: int) -> list:
-    backpack = []
-    total_weight = 0
-    for item, weight in my_stuff.items():
-        if total_weight + weight <= load_capacity:
-            backpack.append(item)
-            total_weight += weight
-    return backpack
+# создаем общий список с возможными комбинациями
+total_list = []
 
 
-print(max_weight(10))
+def find_combination(load_capacity: int):
+    while 1:
+        if my_stuff_sort:
+            temp_list = []
+            total_weight = 0
+
+            for item, weight in my_stuff_sort.items():
+                if total_weight + weight <= load_capacity:
+                    temp_list.append(item)
+                    total_weight += weight
+
+            total_list.append(temp_list)
+
+            for item in temp_list:
+                if item in my_stuff_sort.keys():
+                    my_stuff_sort.__delitem__(item)
+
+        else:
+            break
+
+    for elem in total_list:
+        print(elem)
+
+
+find_combination(15)
