@@ -8,10 +8,12 @@
 """
 
 
-def function(*, res: int, reverse: list[int]) -> dict:
-    dict = {}
-
-    return dict
+def function(**kwargs) -> dict:
+    result = {}
+    for key, value in kwargs.items():
+        value = str(value)
+        result[value] = key
+    return result
 
 
 print(function(res=1, reverse=[1, 2, 3]))

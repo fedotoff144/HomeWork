@@ -14,6 +14,7 @@ BONUS_STEP = 3  # каждая третья операция со счетом
 BONUS_OPERATIONS = 0.03  # бонусные проценты за каждую третью операцию 3%
 all_money = 0
 operations_counter = 1
+HISTORY_OPERATIONS = []
 
 
 def validation_request(message: str) -> int:
@@ -48,18 +49,21 @@ def calculation_commission(request_money: int) -> int | float:
         return result
 
 
-def counter_bonus(request_money: int) -> int | float:
+def counter_bonus(request_for_money: int) -> int | float:
     if operations_counter % BONUS_STEP == 0:
-        return request_money * BONUS_OPERATIONS
+        return request_for_money * BONUS_OPERATIONS
     else:
         return 0
 
 
 def output(money: int | float, commission: int | float, bonus: int | float) -> str:
+    message = ''
     if bonus != 0:
-        print(f'Комиссия за операцию: -{commission} | бонусы за операцию: +{bonus} | на вашем счету:{money}')
+        message = f'Комиссия за операцию: -{commission} | бонусы за операцию: +{bonus} | на вашем счету:{money}'
     else:
-        print(f'Комиссия за операцию: -{commission} | на вашем счету:{money}')
+        message = f'Комиссия за операцию: -{commission} | на вашем счету:{money}'
+    HISTORY_OPERATIONS.append(f'{message}')
+    return message
 
 
 print('Добро пожаловать в банкомат!\n1. Пополнить баланс\n2. Снять наличные\n0. Выход')
@@ -76,7 +80,8 @@ while True:
                     bonus = counter_bonus(request_money)
                     all_money += request_money - commission + bonus
 
-                    output(all_money, commission, bonus)
+                    answer = output(all_money, commission, bonus)
+                    print(answer)
                     operations_counter += 1
                     break
 
@@ -92,12 +97,14 @@ while True:
                         print('На счету недостаточно средств!')
                     else:
                         all_money -= request_money + commission - bonus
-                        output(all_money, commission, bonus)
+                        answer = output(all_money, commission, bonus)
+                        print(answer)
                         operations_counter += 1
                     break
 
         case 0:
             print('До свидания!')
+            print(*HISTORY_OPERATIONS)
             exit()
 
         case _:
