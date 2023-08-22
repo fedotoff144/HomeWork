@@ -7,9 +7,9 @@
 """
 
 names = ['Anna', 'Alexander', 'Ivan']
-salaries = [155_000, 95_000, 197_000]
+salaries = [10_000, 20_000, 30_000]
 awards = ['10.25%', '5.5%', '12.2%']
 
-result = {name: salary for name in names for salary in salaries}
-print(*result)
-# res = {i + j for i in x if i % 2 != 0 for j in y if j != 1}
+result = {name: salary + salary * float(award.replace('%', '')) / 100 for name, salary, award in zip(names, salaries, awards)}
+
+print(result)
