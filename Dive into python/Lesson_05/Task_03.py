@@ -4,19 +4,25 @@
 
 
 def fibonacci_func(n):
-    fib = 3
     if n <= 1:
         return 0
     elif n == 2:
         return 1
     else:
+        a, b = 0, 1
         for i in range(2, n):
-            fib = fib - 2 + fib - 1
-            yield fib
+            a, b = b, b + a
+            yield a
 
 
-fib_num = fibonacci_func(5)
+fib_num = fibonacci_func(10)
 print(next(fib_num))
 print(next(fib_num))
 print(next(fib_num))
 print(next(fib_num))
+print(next(fib_num))
+print(next(fib_num))
+print(next(fib_num))
+print(next(fib_num))
+# print(next(fib_num)) # StopIteration
+
