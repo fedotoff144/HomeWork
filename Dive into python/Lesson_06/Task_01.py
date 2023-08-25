@@ -68,3 +68,11 @@ MSFT
 о ценах акций. В данной задаче можно использовать фиктивные данные
 для тестирования и обучения.
 """
+from pack_of_modules import portfolio
+
+stocks = {"GAZP ": 18, "VTBR": 1013, "SBPR": 63, "AFLT": 113}
+prices = {"GAZP ": 174.64, "VTBR": 0.02766, "SBPR": 258.34, "AFLT": 44.17}
+
+print(portfolio.calculate_portfolio_value(stocks, prices))
+print(portfolio.calculate_portfolio_return(initial_value=304.75, current_value=258.34))
+print(portfolio.get_most_profitable_stock(stocks, prices))
