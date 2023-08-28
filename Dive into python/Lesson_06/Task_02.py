@@ -27,3 +27,9 @@ _table = [
 _SAFE_COMB_EXAMPLE = [(0, 0), (6, 1), (4, 2), (7, 3),
 (1, 4), (3, 5), (5, 6), (2, 7)]
 """
+from pack_of_modules import chess_module as cm
+
+_SAFE_COMB_EXAMPLE = [(0, 0), (6, 1), (4, 2), (7, 3),
+                      (1, 4), (3, 5), (5, 6), (2, 7)]
+
+print(cm.check_intersecting_lines(_SAFE_COMB_EXAMPLE))

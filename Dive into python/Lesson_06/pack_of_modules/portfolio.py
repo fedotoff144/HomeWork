@@ -1,4 +1,4 @@
-__all__ = ['calculate_portfolio_value', 'calculate_portfolio_return', 'get_most_profitable_stock']
+__all__ = ['calculate_portfolio_value', 'calculate_portfolio_return', 'get_most_profitable_stock', '_start_prices']
 
 _start_prices: dict = {}
 
@@ -14,11 +14,5 @@ def calculate_portfolio_return(initial_value: float, current_value: float) -> fl
     return result
 
 
-def get_most_profitable_stock(stocks: dict, prices: dict) -> str:
-    tempo_dict: dict = {}
-    for key in stocks.keys():
-        if key in prices.keys():
-            tempo_dict[key] = stocks[key] * prices[key]
-    return f'{max(tempo_dict, key=tempo_dict.get)}'
-
-
+def get_most_profitable_stock(prices: dict) -> str:
+    return f'{max(prices, key=prices.get)}'
