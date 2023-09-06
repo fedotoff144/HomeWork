@@ -66,4 +66,42 @@ def scan_files(path: str) -> list:
     return res_list
 
 
-print(scan_files(path))
+def create_json_file(data: list):
+    with(
+        open('json_dump_file.json', 'w', encoding='utf-8') as f1,
+        open('json_dumps_file.json', 'w', encoding='utf-8') as f2
+    ):
+        json.dump(data, f1)
+
+        # data преобразуем сначала в строковое значение
+        temp_str = json.dumps(data, ensure_ascii=False, indent=2, separators=('#', '| '), sort_keys=True)
+        # записываем преобразованные данные в файл
+        json.dump(temp_str, f2)
+
+
+def create_csv_file(data: list):
+    with open('csv_file.csv', 'w', newline='', encoding='utf-8') as f:
+        csv_writer = csv.DictWriter(f, fieldnames=["name", "parent", "type", "size"], dialect='excel', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+        # записываем названия столбцов
+        csv_writer.writeheader()
+        # записываем данные столбцов
+        csv_writer.writerows(data)
+
+
+def create_binary_file(data: list):
+    with(
+        open('pickle_dump_file', 'wb') as f1,
+        open('pickle_dumps_file', 'wb') as f2
+    ):
+        pickle.dump(data, f1)
+
+        # data преобразуем сначала в строковое значение
+        temp_str = pickle.dumps(data, protocol=pickle.DEFAULT_PROTOCOL)
+        # записываем преобразованные данные в файл
+        pickle.dump(temp_str, f2)
+
+
+data = scan_files(path)
+create_json_file(data)
+create_csv_file(data)
+create_binary_file(data)

@@ -1,0 +1,80 @@
+[
+  {
+    "name": ".idea",
+    "parent": "Lesson_08",
+    "type": "dir",
+    "size": 4096
+  },
+  {
+    "name": "Task_01.py",
+    "parent": "Lesson_08",
+    "type": "file",
+    "size": 4521
+  },
+  {
+    "name": "Task_02.py",
+    "parent": "Lesson_08",
+    "type": "file",
+    "size": 0
+  },
+  {
+    "name": "Task_03.py",
+    "parent": "Lesson_08",
+    "type": "file",
+    "size": 2
+  },
+  {
+    "name": ".gitignore",
+    "parent": ".idea",
+    "type": "file",
+    "size": 184
+  },
+  {
+    "name": "csv-editor.xml",
+    "parent": ".idea",
+    "type": "file",
+    "size": 403
+  },
+  {
+    "name": "inspectionProfiles",
+    "parent": ".idea",
+    "type": "dir",
+    "size": 0
+  },
+  {
+    "name": "Lesson_08.iml",
+    "parent": ".idea",
+    "type": "file",
+    "size": 291
+  },
+  {
+    "name": "misc.xml",
+    "parent": ".idea",
+    "type": "file",
+    "size": 295
+  },
+  {
+    "name": "modules.xml",
+    "parent": ".idea",
+    "type": "file",
+    "size": 277
+  },
+  {
+    "name": "vcs.xml",
+    "parent": ".idea",
+    "type": "file",
+    "size": 191
+  },
+  {
+    "name": "workspace.xml",
+    "parent": ".idea",
+    "type": "file",
+    "size": 22229
+  },
+  {
+    "name": "profiles_settings.xml",
+    "parent": "inspectionProfiles",
+    "type": "file",
+    "size": 174
+  }
+]

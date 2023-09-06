@@ -1,0 +1,14 @@
+name,parent,type,size
+.idea,Lesson_08,dir,4096
+Task_01.py,Lesson_08,file,4521
+Task_02.py,Lesson_08,file,0
+Task_03.py,Lesson_08,file,2
+.gitignore,.idea,file,184
+csv-editor.xml,.idea,file,403
+inspectionProfiles,.idea,dir,0
+Lesson_08.iml,.idea,file,291
+misc.xml,.idea,file,295
+modules.xml,.idea,file,277
+vcs.xml,.idea,file,191
+workspace.xml,.idea,file,22229
+profiles_settings.xml,inspectionProfiles,file,174
