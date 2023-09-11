@@ -7,13 +7,36 @@
 4. Декоратор, сохраняющий переданные параметры и результаты работы функции в json файл.
 """
 import csv
+import json
 import random
+from typing import Callable
 
 FILE_SIZE = 100
 
 
+def generate_csv_file():
+    with open('numbers.csv', 'w', newline='') as f:
+        for i in range(FILE_SIZE):
+            temp_int = random.randint(100, 999)
+            f.write(f'{temp_int}\n')
+
+
+def write_json_file(data: dict):
+    with open('json_result.json', 'w', encoding='utf-8') as f:
+        json.dump(data, f)
+
+
+def deco_func_equation(func: Callable):
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        return result
+
+    return wrapper
+
+
+@deco_func_equation
 def find_equation_roots(a: int, b: int, c: int):
-    d = b ** 2 - (4 * a * c)
+    d = (b ** 2) - (4 * a * c)
     if d > 0:
         x1 = (-b + (d ** 0.5)) / (2 * a)
         x2 = (-b - (d ** 0.5)) / (2 * a)
@@ -25,8 +48,8 @@ def find_equation_roots(a: int, b: int, c: int):
     return x
 
 
-def generate_csv_file():
-    with open('numbers.csv', 'w', newline='') as f:
-        for i in range(FILE_SIZE):
-            temp_int = random.randint(100, 999)
-            f.write(f'{temp_int}\n')
+
+
+
+
+
