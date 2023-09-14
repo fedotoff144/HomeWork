@@ -11,7 +11,7 @@ import json
 import random
 from typing import Callable
 
-FILE_SIZE = 10
+FILE_SIZE = 100
 CSV_FILENAME = 'numbers.csv'
 
 
@@ -26,32 +26,30 @@ def read_csv_file():
     with open(CSV_FILENAME, 'r', newline='', encoding='utf-8') as f:
         list_nums = []
         reader = csv.reader(f)
-        for i in reader:
-            list_nums.append(i)
+        for line in reader:
+            list_nums.append(line)
     return list_nums
-
-
-def deco_func_equation(func: Callable):
-    def wrapper(*args, **kwargs):
-        for i in args:
-            a, b, c = str(*i)
-            result = func(int(a), int(b), int(c))
-            print(result)
-        return result
-
-    return wrapper
 
 
 def deco_func_json(func: Callable):
     def wrapper(*args, **kwargs):
-
         with open('result.json', 'a', encoding='utf-8') as f:
             my_list = []
             for line in args:
-                function_result = func(line)
+                function_result = func(*line)
                 my_list.append({'arguments': line, 'result': function_result})
             json.dump(my_list, f, ensure_ascii=False)
             return my_list
+
+    return wrapper
+
+
+def deco_func_equation(func: Callable):
+    def wrapper(*args, **kwargs):
+        for trinity in args:
+            a, b, c = map(int, str(trinity))
+            result = func(a, b, c)
+        return result
 
     return wrapper
 
@@ -74,4 +72,3 @@ def find_equation_roots(a, b, c):
 generate_csv_file()
 data = read_csv_file()
 find_equation_roots(*data)
-
