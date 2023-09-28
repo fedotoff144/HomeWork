@@ -399,3 +399,6 @@ FodyWeavers.xsd
 
 # JetBrains IDE folder
 .idea/
+
+# Machinet rule
+machinet.conf
