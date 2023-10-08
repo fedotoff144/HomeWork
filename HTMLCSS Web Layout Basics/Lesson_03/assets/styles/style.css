@@ -8,21 +8,21 @@ a {
 }
 
 .menu_bar {
-    width: 1016px;
+    /*width: 1170px;*/
     height: 40px;
-    flex-shrink: 0;
 }
 
 .logo {
-    width: 137px;
+    /*width: 137px;*/
     height: 40px;
-    flex-shrink: 0;
+    margin-right: 500px;
+    display: inline-block;
 }
 
 .img_logo {
     width: 35px;
     height: 40px;
-    flex-shrink: 0;
+    margin-right: 14px;
 }
 
 .text_logo {
@@ -39,22 +39,24 @@ a {
 }
 
 .menu {
-    width: 533px;
+    /*width: 533px;*/
     height: 17px;
-    flex-shrink: 0;
+    display: inline-block;
 }
 
 .text_menu {
     color: #000;
+    font-family: Gilroy-Medium, serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    margin-left: 20px;
 }
 
 .text_menu_orange {
     color: #F25822;
-    font-family: Gilroy-Bold, serif;
+    font-family: Gilroy-SemiBold, serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -64,18 +66,22 @@ a {
 .icon {
     width: 6px;
     height: 3px;
-    flex-shrink: 0;
+}
+
+.home_meta {
+    width: 522px;
+    height: 374px;
+    margin-top: 164px;
 }
 
 .title {
     width: 522px;
     height: 222px;
-    flex-shrink: 0;
 }
 
 .meta_text {
     color: #000;
-    font-family: Gilroy-Bold;
+    font-family: Gilroy-Bold, serif;
     font-size: 60px;
     font-style: normal;
     font-weight: 400;
@@ -85,32 +91,44 @@ a {
 .sub_title {
     width: 466px;
     height: 48px;
-    flex-shrink: 0;
+    margin-top: 17px;
 }
 
 .sub_title_text {
     color: #888;
-    font-family: Gilroy-Medium;
+    font-family: Gilroy-Medium, serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 }
 
+.button_meta {
+    width: 302px;
+    height: 50px;
+    margin-top: 37px;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+
+}
+
 .button {
     width: 140px;
     height: 50px;
-    flex-shrink: 0;
     border-radius: 50px;
     background: #F25822;
-    box-shadow: 4px 4px 8px 0px rgba(242, 88, 34, 0.20);
+    box-shadow: 4px 4px 8px 0 rgba(242, 88, 34, 0.20);
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*flex: 1;*/
+    display: inline-block;
+
 }
 
 .button_text {
-    margin-left: 35px;
-    margin-bottom: 16px;
     color: #FFF;
-    font-family: Gilroy-Bold;
+    font-family: Gilroy-Bold, serif;
     font-size: 15px;
     font-style: normal;
     font-weight: 400;
@@ -120,12 +138,15 @@ a {
 .video {
     width: 90px;
     height: 19px;
-    flex-shrink: 0;
+    margin-top: 15px;
+    margin-left: 62px;
+    /*flex: 1;*/
+    display: inline-block;
 }
 
-.video_text{
+.video_text {
     color: #AAA;
-    font-family: Gilroy-Bold;
+    font-family: Gilroy-Bold, serif;
     font-size: 15px;
     font-style: normal;
     font-weight: 400;
