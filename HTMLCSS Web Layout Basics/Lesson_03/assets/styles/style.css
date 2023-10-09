@@ -8,20 +8,17 @@ a {
 }
 
 .menu_bar {
-    /*width: 1170px;*/
-    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 40px;
 }
 
 .logo {
-    /*width: 137px;*/
-    height: 40px;
     margin-right: 500px;
-    display: inline-block;
 }
 
 .img_logo {
-    width: 35px;
-    height: 40px;
     margin-right: 14px;
 }
 
@@ -39,8 +36,6 @@ a {
 }
 
 .menu {
-    /*width: 533px;*/
-    height: 17px;
     display: inline-block;
 }
 
@@ -64,19 +59,21 @@ a {
 }
 
 .icon {
-    width: 6px;
-    height: 3px;
+    /*some style*/
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    margin-top: 164px;
 }
 
 .home_meta {
     width: 522px;
-    height: 374px;
-    margin-top: 164px;
 }
 
 .title {
-    width: 522px;
-    height: 222px;
+    /*some style*/
 }
 
 .meta_text {
@@ -89,8 +86,6 @@ a {
 }
 
 .sub_title {
-    width: 466px;
-    height: 48px;
     margin-top: 17px;
 }
 
@@ -107,9 +102,7 @@ a {
     width: 302px;
     height: 50px;
     margin-top: 37px;
-    /*display: flex;*/
-    /*flex-direction: row;*/
-
+    display: flex;
 }
 
 .button {
@@ -118,12 +111,7 @@ a {
     border-radius: 50px;
     background: #F25822;
     box-shadow: 4px 4px 8px 0 rgba(242, 88, 34, 0.20);
-    /*display: flex;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
-    /*flex: 1;*/
-    display: inline-block;
-
+    display: flex;
 }
 
 .button_text {
@@ -133,15 +121,12 @@ a {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    margin-top: 15px;
+    margin-left: 36px;
 }
 
 .video {
-    width: 90px;
-    height: 19px;
-    margin-top: 15px;
-    margin-left: 62px;
-    /*flex: 1;*/
-    display: inline-block;
+    /*some style*/
 }
 
 .video_text {
@@ -151,4 +136,24 @@ a {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    margin-top: 15px;
+    margin-left: 72px;
+}
+
+.main_img {
+    /*some style*/
+}
+
+.footer {
+    /*some style*/
+}
+
+.brand_logo {
+    margin-top: 97px;
+    display: flex;
+    justify-content: center;
+}
+
+.brand {
+    margin-right: 48px;
 }
