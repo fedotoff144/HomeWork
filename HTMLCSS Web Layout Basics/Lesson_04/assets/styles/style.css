@@ -3,6 +3,26 @@
     padding: 0;
 }
 
+@font-face {
+    font-family: 'Gilroy-Bold';
+    src: url('../fonts/gilroy-bold.ttf');
+}
+
+@font-face {
+    font-family: 'Gilroy-Medium';
+    src: url('../fonts/gilroy-medium.ttf');
+}
+
+@font-face {
+    font-family: 'Gilroy-Regular';
+    src: url('../fonts/gilroy-regular.ttf');
+}
+
+@font-face {
+    font-family: 'Gilroy-SemiBold';
+    src: url('../fonts/gilroy-semibold.ttf');
+}
+
 a {
     text-decoration: none;
 }
@@ -20,14 +40,16 @@ a {
 .logo {
     display: flex;
     align-items: center;
+    gap: 14px;
+
 }
 
 .img_logo {
-    margin-right: 14px;
+    /*some style*/
 }
 
 .text_logo {
-    font-family: Gilroy-Bold, serif;
+    font-family: Gilroy-Bold;
     color: #000;
     font-size: 24px;
     font-style: normal;
@@ -40,26 +62,33 @@ a {
 }
 
 .menu {
-    display: inline-block;
-}
+    display: flex;
+    gap: 40px;
 
-.text_menu {
-    color: #000;
-    font-family: Gilroy-Medium, serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-left: 20px;
 }
 
 .text_menu_orange {
     color: #F25822;
-    font-family: Gilroy-SemiBold, serif;
+    font-family: Gilroy-SemiBold;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+.text_menu {
+    color: #000;
+    font-family: Gilroy-Medium;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
 }
 
 .icon {
@@ -69,6 +98,7 @@ a {
 .main {
     display: flex;
     justify-content: center;
+    gap: 39px;
     margin-top: 164px;
 }
 
@@ -82,7 +112,7 @@ a {
 
 .meta_text {
     color: #000;
-    font-family: Gilroy-Bold, serif;
+    font-family: Gilroy-Bold;
     font-size: 60px;
     font-style: normal;
     font-weight: 400;
@@ -95,7 +125,7 @@ a {
 
 .sub_title_text {
     color: #888;
-    font-family: Gilroy-Medium, serif;
+    font-family: Gilroy-Medium;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -104,9 +134,11 @@ a {
 
 .button_meta {
     width: 302px;
-    height: 50px;
     margin-top: 37px;
     display: flex;
+    align-items: center;
+    gap: 72px;
+
 }
 
 .button {
@@ -116,6 +148,8 @@ a {
     background: #F25822;
     box-shadow: 4px 4px 8px 0 rgba(242, 88, 34, 0.20);
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button_text {
@@ -125,8 +159,6 @@ a {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-top: 15px;
-    margin-left: 36px;
 }
 
 .video {
@@ -135,13 +167,11 @@ a {
 
 .video_text {
     color: #AAA;
-    font-family: Gilroy-Bold, serif;
+    font-family: Gilroy-Bold;
     font-size: 15px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-top: 15px;
-    margin-left: 72px;
 }
 
 .main_img {
