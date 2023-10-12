@@ -99,11 +99,12 @@ a {
     display: flex;
     justify-content: center;
     gap: 39px;
-    margin-top: 164px;
+    margin: 164px auto;
+    width: 1170px;
 }
 
 .home_meta {
-    width: 522px;
+    /*some style*/
 }
 
 .title {
@@ -183,14 +184,12 @@ a {
 }
 
 .brand_logo {
-    margin-top: 97px;
+    margin: 97px auto 0 auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .brand {
-    margin-right: 48px;
+    /*some style*/
 }
