@@ -30,7 +30,6 @@ a {
 .top {
     padding-top: 100px;
     padding-bottom: 100px;
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,7 +38,7 @@ a {
 }
 
 .features {
-    width: 310px;
+    max-width: 310px;
     height: 226px;
     display: flex;
     flex-direction: column;
@@ -52,7 +51,6 @@ a {
 }
 
 .title {
-    /*width: 100%;*/
     color: #000;
     font-family: Gilroy-Bold;
     font-size: 24px;
@@ -68,7 +66,7 @@ a {
     font-size: 15px;
     font-style: normal;
     font-weight: 400;
-    line-height: 150%; /* 22.5px */
+    line-height: 150%;
 }
 
 .button {
@@ -77,11 +75,11 @@ a {
     font-size: 11px;
     font-style: normal;
     font-weight: 400;
-    line-height: 150%; /* 16.5px */
+    line-height: 150%;
 }
 
 .outside_block {
-    width: 370px;
+    max-width: 370px;
     height: 291px;
     display: flex;
     justify-content: center;
@@ -91,16 +89,14 @@ a {
 }
 
 .main {
-    width: 100%;
-    height: 920px;
     display: flex;
     flex-direction: column;
-    /*justify-content: center;*/
     align-items: center;
-    margin-top: 92px;
 }
 
 .headline {
+    margin-top: 92px;
+    max-width: 579px;
     color: #000;
     font-family: Gilroy-Bold;
     font-size: 45px;
@@ -110,15 +106,38 @@ a {
 }
 
 .text_main {
+    margin-top: 19px;
+    max-width: 682px;
     color: #666;
     text-align: center;
     font-family: Gilroy-Regular;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 150%; /* 24px */
+    line-height: 150%;
 }
 
-.services{
+.services {
+    margin-top: 55px;
+    display: flex;
+    gap: 30px;
+}
 
+.service {
+    max-width: 370px;
+    /*height: 549px;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text_service {
+    width: 310px;
+    color: #AAA;
+    text-align: center;
+    font-family: Gilroy-Regular;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
 }
