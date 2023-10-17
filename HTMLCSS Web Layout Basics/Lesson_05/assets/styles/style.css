@@ -34,7 +34,6 @@ a {
     justify-content: center;
     align-items: center;
     gap: 60px;
-    border: black 1px solid;
 }
 
 .features {
@@ -89,6 +88,7 @@ a {
 }
 
 .main {
+    background: #FAFAFA;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -121,14 +121,19 @@ a {
     margin-top: 55px;
     display: flex;
     gap: 30px;
+    margin-bottom: 100px;
 }
 
 .service {
     max-width: 370px;
-    /*height: 549px;*/
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+}
+
+.signboard {
+    width: 370px;
+    height: 270px;
 }
 
 .text_service {
@@ -140,4 +145,38 @@ a {
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
+    margin-top: 22px;
+}
+
+.button_service {
+    margin-top: 39px;
+    position: relative;
+}
+
+.button_form {
+    /*some style*/
+}
+
+.service_text {
+    position: absolute;
+    top: 17px;
+    left: 40px;
+    color: #FFF;
+    text-align: center;
+    font-family: Gilroy-Bold;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.arrow {
+    position: absolute;
+    top: 22px;
+    right: 45px;
+}
+
+.external_block {
+    background: #FFF;
+    box-shadow: 15px 25px 60px -5px rgba(0, 0, 0, 0.10);
 }
