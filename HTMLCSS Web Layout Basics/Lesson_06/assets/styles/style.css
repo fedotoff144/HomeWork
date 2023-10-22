@@ -1,0 +1,93 @@
+@font-face {
+    font-family: 'Lato-Bold';
+    src: url('../fonts/Lato-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Lato-Regular';
+    src: url('../fonts/Lato-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Lato-Ligth';
+    src: url('../fonts/Lato-Light.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    width: 100%;
+    min-height: 75px;
+    background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 860px;
+}
+
+.logo {
+    display: flex;
+    align-items: flex-end;
+    gap: 40px;
+}
+
+.banner {
+    width: 100%;
+    background: #F1E4E6;
+    display: flex;
+}
+
+.main_image {
+    min-width: 800px;
+
+}
+
+.main_text {
+    display: flex;
+    gap: 16px;
+    margin-top: 290px;
+    margin-left: 65px;
+}
+
+.main_text h1 {
+    color: #222;
+    font-family: Lato-Bold;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
+
+.main_text h2 {
+    color: #222;
+    font-family: Lato-Regular;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.main_text h2 span{
+    color: #F16D7F;
+}
+
+.vertical_line {
+    width: 12px;
+    height: 92px;
+    background: #F16D7F;
+}
+
+.headline {
+    /*some style*/
+}
+
+.offer{
+
+}
