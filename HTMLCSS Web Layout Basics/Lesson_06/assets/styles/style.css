@@ -128,6 +128,9 @@ a {
 .products {
     width: 1140px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto 60px auto;
 }
 
 .headline {
@@ -137,9 +140,80 @@ a {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    display: flex;
+    justify-content: center;
 }
 
-.headline h3 {
+h3.headline {
     color: #222;
     font-size: 30px;
+}
+
+.collection {
+    margin-top: 48px;
+    margin-bottom: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.item {
+    width: 360px;
+    height: 581px;
+    background: #F8F8F8;
+}
+
+.outfit {
+    width: 360px;
+    height: 420px;
+    background: #F7E4E2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.text {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 24px 16px 0 16px;
+    width: 328px;
+    text-align: left;
+}
+
+.title {
+    color: #000;
+    font-family: Lato-Bold;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.description {
+    color: #5D5D5D;
+    font-family: Lato-Ligth;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.price {
+    color: #F16D7F;
+    font-family: Lato-Regular;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.button {
+    width: 212px;
+    height: 48px;
+    border: #F26376 solid 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
