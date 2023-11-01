@@ -9,195 +9,405 @@ a {
     text-decoration: none;
 }
 
-.header {
-    width: 100%;
-    min-height: 75px;
-    background: #222;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 860px;
+@media screen and (min-width: 1440px) {
+
+    .header {
+        width: 100%;
+        min-height: 75px;
+        background: #222;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 860px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: flex-end;
+        gap: 40px;
+    }
+
+    .menu{
+        display: flex;
+        gap: 30px;
+    }
+
+    .banner {
+        width: 100%;
+        background: #F1E4E6;
+        display: flex;
+    }
+
+    .main_image {
+        max-width: 800px;
+
+    }
+
+    .main_text {
+        display: flex;
+        gap: 16px;
+        margin-top: 290px;
+        margin-left: 65px;
+    }
+
+    .main_text h1 {
+        color: #222;
+        font-family: Lato;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+    }
+
+    .main_text h2 {
+        color: #222;
+        font-family: Lato;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    .main_text h2 span {
+        color: #F16D7F;
+    }
+
+    .vertical_line {
+        width: 12px;
+        height: 92px;
+        background: #F16D7F;
+    }
+
+    .offer {
+        width: 1140px;
+        margin: 65px auto 96px auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .box {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #211616;
+    }
+
+    .sticker {
+        display: flex;
+        justify-content: center;
+        opacity: 0.3;
+    }
+
+    .inscription {
+        position: absolute;
+        color: #FFF;
+        text-align: center;
+        font-family: Lato;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .inscription h4 {
+        color: #F16D7F;
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    .products {
+        width: 1140px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto 60px auto;
+    }
+
+    .headline {
+        color: #9F9F9F;
+        font-family: Lato;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        display: flex;
+        justify-content: center;
+    }
+
+    h3.headline {
+        color: #222;
+        font-size: 30px;
+    }
+
+    .collection {
+        margin-top: 48px;
+        margin-bottom: 48px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .item {
+        width: 360px;
+        height: 581px;
+        background: #F8F8F8;
+    }
+
+    .outfit {
+        width: 360px;
+        height: 420px;
+        background: #F7E4E2;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .text {
+        display: flex;
+        gap: 16px;
+        flex-direction: column;
+        padding: 24px 16px 0 16px;
+    }
+
+    .title {
+        color: #000;
+        font-family: Lato;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .description {
+        color: #5D5D5D;
+        font-family: Lato;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+    }
+
+    .price {
+        color: #F16D7F;
+        font-family: Lato;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .button {
+        width: 212px;
+        height: 48px;
+        border: #F26376 solid 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
-.logo {
-    display: flex;
-    align-items: flex-end;
-    gap: 40px;
+@media screen and (max-width: 1439px) and (min-width: 768px){
+    .header {
+        width: 100%;
+        min-height: 75px;
+        background: #222;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 424px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: flex-end;
+        gap: 40px;
+    }
+
+    .menu{
+        display: flex;
+        gap: 30px;
+    }
+
+    .banner {
+        width: 100%;
+        height: 368px;
+        background: #F1E4E6;
+        display: flex;
+    }
+
+    .main_image {
+        max-width: 800px;
+
+    }
+
+    .main_text {
+        display: flex;
+        gap: 16px;
+        margin-top: 140px;
+        margin-left: 40px;
+    }
+
+    .main_text h1 {
+        color: #222;
+        font-family: Lato;
+        font-size: 44px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+    }
+
+    .main_text h2 {
+        color: #222;
+        font-family: Lato;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    .main_text h2 span {
+        color: #F16D7F;
+    }
+
+    .vertical_line {
+        width: 12px;
+        height: 92px;
+        background: #F16D7F;
+    }
+
+    .offer {
+        width: 1140px;
+        margin: 65px auto 96px auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .box {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #211616;
+    }
+
+    .sticker {
+        display: flex;
+        justify-content: center;
+        opacity: 0.3;
+    }
+
+    .inscription {
+        position: absolute;
+        color: #FFF;
+        text-align: center;
+        font-family: Lato;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .inscription h4 {
+        color: #F16D7F;
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    .products {
+        width: 1140px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto 60px auto;
+    }
+
+    .headline {
+        color: #9F9F9F;
+        font-family: Lato;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        display: flex;
+        justify-content: center;
+    }
+
+    h3.headline {
+        color: #222;
+        font-size: 30px;
+    }
+
+    .collection {
+        margin-top: 48px;
+        margin-bottom: 48px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .item {
+        width: 360px;
+        height: 581px;
+        background: #F8F8F8;
+    }
+
+    .outfit {
+        width: 360px;
+        height: 420px;
+        background: #F7E4E2;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .text {
+        display: flex;
+        gap: 16px;
+        flex-direction: column;
+        padding: 24px 16px 0 16px;
+    }
+
+    .title {
+        color: #000;
+        font-family: Lato;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .description {
+        color: #5D5D5D;
+        font-family: Lato;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+    }
+
+    .price {
+        color: #F16D7F;
+        font-family: Lato;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .button {
+        width: 212px;
+        height: 48px;
+        border: #F26376 solid 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
-.banner {
-    width: 100%;
-    background: #F1E4E6;
-    display: flex;
-}
-
-.main_image {
-    max-width: 800px;
-
-}
-
-.main_text {
-    display: flex;
-    gap: 16px;
-    margin-top: 290px;
-    margin-left: 65px;
-}
-
-.main_text h1 {
-    color: #222;
-    font-family: Lato;
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: normal;
-}
-
-.main_text h2 {
-    color: #222;
-    font-family: Lato;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
-
-.main_text h2 span {
-    color: #F16D7F;
-}
-
-.vertical_line {
-    width: 12px;
-    height: 92px;
-    background: #F16D7F;
-}
-
-.offer {
-    width: 1140px;
-    margin: 65px auto 96px auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-}
-
-.box {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: #211616;
-}
-
-.sticker {
-    display: flex;
-    justify-content: center;
-    opacity: 0.3;
-}
-
-.inscription {
-    position: absolute;
-    color: #FFF;
-    text-align: center;
-    font-family: Lato;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.inscription h4 {
-    color: #F16D7F;
-    font-size: 24px;
-    font-weight: 700;
-}
-
-.products {
-    width: 1140px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto 60px auto;
-}
-
-.headline {
-    color: #9F9F9F;
-    font-family: Lato;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    display: flex;
-    justify-content: center;
-}
-
-h3.headline {
-    color: #222;
-    font-size: 30px;
-}
-
-.collection {
-    margin-top: 48px;
-    margin-bottom: 48px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-}
-
-.item {
-    width: 360px;
-    height: 581px;
-    background: #F8F8F8;
-}
-
-.outfit {
-    width: 360px;
-    height: 420px;
-    background: #F7E4E2;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.text {
-    display: flex;
-    gap: 16px;
-    flex-direction: column;
-    padding: 24px 16px 0 16px;
-}
-
-.title {
-    color: #000;
-    font-family: Lato;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.description {
-    color: #5D5D5D;
-    font-family: Lato;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-}
-
-.price {
-    color: #F16D7F;
-    font-family: Lato;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.button {
-    width: 212px;
-    height: 48px;
-    border: #F26376 solid 1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
