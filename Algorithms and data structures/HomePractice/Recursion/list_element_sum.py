@@ -1,4 +1,4 @@
-# finding a sum using recursion
+# finding a sum by recursion
 
 my_arr = [1, 2, 3, 4, 5, 6]
 
