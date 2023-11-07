@@ -36,6 +36,9 @@ a {
         width: 100%;
         background: #F1E4E6;
         display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 64px;
     }
 
     .main_image {
@@ -46,8 +49,6 @@ a {
     .main_text {
         display: flex;
         gap: 16px;
-        margin-top: 290px;
-        margin-left: 65px;
     }
 
     .main_text h1 {
@@ -237,18 +238,18 @@ a {
         height: 368px;
         background: #F1E4E6;
         display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 39px;
     }
 
     .main_image {
-        max-width: 800px;
-
+        width: 386px;
     }
 
     .main_text {
         display: flex;
         gap: 16px;
-        margin-top: 140px;
-        margin-left: 40px;
     }
 
     .main_text h1 {
@@ -281,7 +282,7 @@ a {
 
     .offer {
         width: 1140px;
-        margin: 65px auto 96px auto;
+        margin: 65px auto 109px auto;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -321,11 +322,15 @@ a {
     }
 
     .products {
-        width: 1140px;
+        width: 100%;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 0 auto 60px auto;
+        flex-wrap: wrap;
+        /*flex-direction: column;*/
+        /*align-items: center;*/
+        justify-content: center;
+        margin-bottom: 70px;
+        /*gap: 16px;*/
+        /*margin: 0 auto 60px auto;*/
     }
 
     .headline {
@@ -348,8 +353,9 @@ a {
         margin-top: 48px;
         margin-bottom: 48px;
         display: flex;
+        justify-content: center;
         flex-wrap: wrap;
-        gap: 30px;
+        gap: 16px;
     }
 
     .item {
