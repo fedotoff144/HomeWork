@@ -291,9 +291,7 @@ a {
     }
 
     .box {
-        position: relative;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
         background: #211616;
@@ -325,16 +323,24 @@ a {
         font-weight: 700;
     }
 
+    .accessories{
+        display: flex;
+        grid-column: 1/4;
+        justify-content: center;
+        align-items: center;
+        background: #211616;
+    }
+
+    .accessories img{
+        width: 100%;
+    }
+
     .products {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
-        /*flex-direction: column;*/
-        /*align-items: center;*/
         justify-content: center;
         margin-bottom: 70px;
-        /*gap: 16px;*/
-        /*margin: 0 auto 60px auto;*/
     }
 
     .headline {
