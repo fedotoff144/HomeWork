@@ -37,7 +37,7 @@ a {
         position: relative;
     }
 
-    .menu img{
+    .menu img {
         width: 32px;
         height: 32px;
     }
@@ -281,7 +281,7 @@ a {
         position: relative;
     }
 
-    .menu img{
+    .menu img {
         width: 32px;
         height: 32px;
     }
@@ -452,7 +452,19 @@ a {
         align-items: center;
     }
 
+    .outfit:hover {
+        background: rgba(58, 56, 56, 0.85);
+    }
+
+    .outfit img:hover {
+        opacity: 0.3;
+    }
+
     .add_to_cart {
+        display: none;
+    }
+
+    .add_to_cart:hover {
         width: 139px;
         height: 44px;
         display: flex;
@@ -460,7 +472,6 @@ a {
         align-items: center;
         border: #FFFFFF solid 1px;
         gap: 11px;
-        /*background: #211616;*/
     }
 
     .outfit span {
