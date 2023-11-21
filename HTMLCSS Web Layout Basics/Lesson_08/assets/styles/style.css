@@ -646,13 +646,13 @@ a {
     }
 
     .offer {
-        width: 100%;
+        /*width: 100%;*/
         margin: 65px auto 109px auto;
         display: grid;
         justify-content: center;
-        grid-template-columns: 232px 232px 232px;
-        grid-template-rows: 168px 116px;
-        gap: 20px;
+        grid-template-columns: 344px;
+        grid-template-rows: 248px 248px 248px 111px;
+        gap: 32px;
     }
 
     .box {
@@ -689,14 +689,14 @@ a {
 
     .accessories {
         display: flex;
-        grid-column: 1/4;
+        /*grid-column: 1/4;*/
         justify-content: center;
         align-items: center;
         background: #211616;
     }
 
     .accessories img {
-        width: 100%;
+        height: 100%;
     }
 
     .products {
