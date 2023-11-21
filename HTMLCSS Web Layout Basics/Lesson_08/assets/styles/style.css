@@ -689,10 +689,10 @@ a {
 
     .accessories {
         display: flex;
-        /*grid-column: 1/4;*/
         justify-content: center;
         align-items: center;
         background: #211616;
+        overflow: hidden;
     }
 
     .accessories img {
