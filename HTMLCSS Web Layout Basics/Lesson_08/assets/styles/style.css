@@ -545,7 +545,6 @@ a {
 
 @media screen and (max-width: 767px) and (min-width: 375px) {
     .header {
-        /*width: 100vw;*/
         min-height: 74px;
         padding-left: 16px;
         padding-right: 16px;
@@ -553,7 +552,6 @@ a {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        /*gap: 200px;*/
     }
 
     .logo {
@@ -563,7 +561,6 @@ a {
     }
 
     .menu {
-        /*width: 169px;*/
         height: 37px;
         display: flex;
         align-items: center;
@@ -573,35 +570,15 @@ a {
 
     .visible {
         width: 32px;
-        height: 32px;
+        height: 23px;
     }
 
     .menu img:not(.visible), .menu div {
         display: none;
     }
 
-    .circle_marker {
-        width: 19px;
-        height: 19px;
-        background: #F16D7F;
-        border-radius: 9px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #FFF;
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        position: absolute;
-        top: 0;
-        right: 0;
-
-    }
-
     .banner {
-        /*width: 100%;*/
-        height: 368px;
+        height: 363px;
         background: #F1E4E6;
         display: flex;
         align-items: center;
@@ -646,8 +623,7 @@ a {
     }
 
     .offer {
-        /*width: 100%;*/
-        margin: 65px auto 109px auto;
+        margin: 65px auto;
         display: grid;
         justify-content: center;
         grid-template-columns: 344px;
@@ -700,7 +676,6 @@ a {
     }
 
     .products {
-        width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -724,7 +699,7 @@ a {
     }
 
     .collection {
-        margin-top: 48px;
+        margin-top: 64px;
         margin-bottom: 40px;
         display: flex;
         justify-content: center;
