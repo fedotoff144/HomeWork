@@ -15,7 +15,7 @@
         <img src="img/Search.svg" alt="serch button">
     </section>
     <nav class="menu">
-        <img src="img/menu.svg" alt="menu" class="visible">
+        <a href="#"><img src="img/menu.svg" alt="menu" class="visible"></a>
         <img src="img/person.svg" alt="person">
         <img src="img/cart.svg" alt="cart">
         <div class="circle_marker">
@@ -25,6 +25,40 @@
 </header>
 
 <main>
+    <section class="hidden_menu">
+        <h4 class="marker_menu">MENU</h4>
+        <article class="submenu">
+            <h4 class="group">MAN</h4>
+            <div class="category">
+                <a href="#">Accessories</a>
+                <a href="#">Bags</a>
+                <a href="#">Denim</a>
+                <a href="#">T-Shirts</a>
+            </div>
+        </article>
+        <article class="submenu">
+            <h4 class="group">WOMAN</h4>
+            <div class="category">
+                <a href="#">Accessories</a>
+                <a href="#">Jackets & Coats</a>
+                <a href="#">Polos</a>
+                <a href="#">T-Shirts</a>
+                <a href="#">Shirts</a>
+            </div>
+        </article>
+        <article class="submenu">
+            <h4 class="group">KIDS</h4>
+            <div class="category">
+                <a href="#">Accessories</a>
+                <a href="#">Jackets & Coats</a>
+                <a href="#">Polos</a>
+                <a href="#">T-Shirts</a>
+                <a href="#">Shirts</a>
+                <a href="#">Bags</a>
+            </div>
+        </article>
+    </section>
+
     <section class="banner">
         <img src="img/Main_outfit.svg" alt="main outfit" class="main_image">
         <div class="main_text">
@@ -213,9 +247,7 @@
                 <span>FOR OUR NEWLETTER AND PROMOTION</span>
             </div>
             <div class="email_form">
-                <div class="input_email">
-                    <input id="email" placeholder="Enter Your Email">
-                </div>
+                <input id="email" placeholder="Enter Your Email" class="input_email">
                 <button type="submit" class="submit_email">Subscribe</button>
             </div>
         </article>
@@ -223,20 +255,28 @@
 </main>
 
 <footer>
-    © 2022  Brand  All Rights Reserved.
+    © 2022 Brand All Rights Reserved.
     <div class="social_midea">
-        <div>
-            <img src="img/facebook-f-brands.svg" alt="facebook">
-        </div>
-        <div>
-            <img src="img/instagram-brands.svg" alt="instagram">
-        </div>
-        <div>
-            <img src="img/pinterest-p-brands.svg" alt="pinterest">
-        </div>
-        <div>
-            <img src="img/twitter-brands.svg" alt="twitter">
-        </div>
+        <a href="#">
+            <div>
+                <img src="img/facebook-f-brands.svg" alt="facebook" class="icon">
+            </div>
+        </a>
+        <a href="#">
+            <div>
+                <img src="img/instagram-brands.svg" alt="instagram" class="icon">
+            </div>
+        </a>
+        <a href="#">
+            <div>
+                <img src="img/pinterest-p-brands.svg" alt="pinterest" class="icon">
+            </div>
+        </a>
+        <a href="#">
+            <div>
+                <img src="img/twitter-brands.svg" alt="twitter" class="icon">
+            </div>
+        </a>
     </div>
 </footer>
 
