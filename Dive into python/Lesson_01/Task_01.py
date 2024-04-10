@@ -19,4 +19,3 @@ else:
     MESSAGE = 'Triangle is scalene'
 
 print(MESSAGE)
-
