@@ -4,12 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6c2c0a5-c528-4e2c-8dc8-b806bf6941fb" name="Changes" comment="" />
+    <list default="true" id="f6c2c0a5-c528-4e2c-8dc8-b806bf6941fb" name="Changes" comment="">
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/Task_011.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task_01.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task_01.py" afterDir="false" />
+>>>>>>> 0581c9765e00ad35d376c3beca71dddf4cbccfb7
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
+=======
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -17,6 +27,7 @@
       </list>
     </option>
   </component>
+>>>>>>> 0581c9765e00ad35d376c3beca71dddf4cbccfb7
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
@@ -28,7 +39,11 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
+<<<<<<< HEAD
+    &quot;url&quot;: &quot;https://github.com/fedotoff144/HomeWork.git&quot;,
+=======
     &quot;url&quot;: &quot;https://github.com/fedotoff144/Education.git&quot;,
+>>>>>>> 0581c9765e00ad35d376c3beca71dddf4cbccfb7
     &quot;accountId&quot;: &quot;4c511740-f9e8-4345-9f8e-4755db615ab4&quot;
   }
 }</component>
@@ -51,6 +66,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
+<<<<<<< HEAD
+    "ignore.virus.scanning.warn.message": "true",
+=======
+>>>>>>> 0581c9765e00ad35d376c3beca71dddf4cbccfb7
     "last_opened_file_path": "D:/GeekBrains/HomeWork/Dive into python/Lesson_01",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -60,7 +79,7 @@
     "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -81,8 +100,13 @@
       <option name="presentableId" value="Default" />
       <updated>1691830333819</updated>
       <workItem from="1691830336625" duration="24000" />
+<<<<<<< HEAD
+      <workItem from="1712640254857" duration="4983000" />
+      <workItem from="1712666543011" duration="537000" />
+=======
       <workItem from="1712771398671" duration="1871000" />
-      <workItem from="1712775349142" duration="5007000" />
+      <workItem from="1712775349142" duration="4774000" />
+>>>>>>> 0581c9765e00ad35d376c3beca71dddf4cbccfb7
     </task>
     <servers />
   </component>

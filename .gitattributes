@@ -1,0 +1,7 @@
+# Установка символов конца строки для всех файлов
+* text=auto
+
+# Установка CRLF для Windows, LF для Linux и macOS
+*.c text eol=crlf
+*.h text eol=crlf
+*.txt text eol=lf
