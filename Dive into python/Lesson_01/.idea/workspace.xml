@@ -5,13 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6c2c0a5-c528-4e2c-8dc8-b806bf6941fb" name="Changes" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/Task_011.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task_01.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task_01.py" afterDir="false" />
+>>>>>>> 0581c9765e00ad35d376c3beca71dddf4cbccfb7
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
+=======
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+>>>>>>> 0581c9765e00ad35d376c3beca71dddf4cbccfb7
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
@@ -23,7 +39,11 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
+<<<<<<< HEAD
     &quot;url&quot;: &quot;https://github.com/fedotoff144/HomeWork.git&quot;,
+=======
+    &quot;url&quot;: &quot;https://github.com/fedotoff144/Education.git&quot;,
+>>>>>>> 0581c9765e00ad35d376c3beca71dddf4cbccfb7
     &quot;accountId&quot;: &quot;4c511740-f9e8-4345-9f8e-4755db615ab4&quot;
   }
 }</component>
@@ -32,17 +52,24 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2TsSXAHtnnyOXksbw2ovnARnzxS" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.Task_011.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
+<<<<<<< HEAD
     "ignore.virus.scanning.warn.message": "true",
+=======
+>>>>>>> 0581c9765e00ad35d376c3beca71dddf4cbccfb7
     "last_opened_file_path": "D:/GeekBrains/HomeWork/Dive into python/Lesson_01",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -73,12 +100,20 @@
       <option name="presentableId" value="Default" />
       <updated>1691830333819</updated>
       <workItem from="1691830336625" duration="24000" />
+<<<<<<< HEAD
       <workItem from="1712640254857" duration="4983000" />
       <workItem from="1712666543011" duration="537000" />
+=======
+      <workItem from="1712771398671" duration="1871000" />
+      <workItem from="1712775349142" duration="4774000" />
+>>>>>>> 0581c9765e00ad35d376c3beca71dddf4cbccfb7
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Lesson_01$Task_011.coverage" NAME="Task_011 Coverage Results" MODIFIED="1712780077521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
