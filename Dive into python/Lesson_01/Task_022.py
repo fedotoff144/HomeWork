@@ -3,10 +3,12 @@
 # Сделайте ограничение на ввод отрицательных чисел и чисел больше 100 тысяч.
 
 message = 'Enter a positive number from 0 to 100_000: '
+MIN_LIMIT = 0
+MAX_LIMIT = 100_000
 
 num = int(input(message))
 
-if (num < 100000) and (num > 0):
+if (num < MAX_LIMIT) and (num > MIN_LIMIT):
     if num == 1:
         message = 'The number is neither prime nor composite'
     elif ((num != 2) and (num % 2 == 0)) or ((num != 3) and (num % 3 == 0)) or ((num != 5) and (num % 5 == 0)):
