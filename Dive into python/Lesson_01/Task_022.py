@@ -8,7 +8,7 @@ MAX_LIMIT = 100_000
 
 num = int(input(message))
 
-if (num < MAX_LIMIT) and (num > MIN_LIMIT):
+if MAX_LIMIT > num > MIN_LIMIT:
     if num == 1:
         message = 'The number is neither prime nor composite'
     elif ((num != 2) and (num % 2 == 0)) or ((num != 3) and (num % 3 == 0)) or ((num != 5) and (num % 5 == 0)):
