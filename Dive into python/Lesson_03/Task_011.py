@@ -4,10 +4,12 @@
 
 
 my_list = [1, 2, 3, 1, 2, 4, 5]
-res = []
+new_list = []
 
-for elem in my_list:
-    if my_list.count(elem) > 1 and elem not in res:
-        res.append(elem)
+for i in my_list:
+    count = my_list.count(i)
+    if count > 1:
+        if i not in new_list:
+            new_list.append(i)
 
-print(res)
+print(new_list)
