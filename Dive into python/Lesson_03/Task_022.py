@@ -2,9 +2,9 @@
 # и вернуть 10 самых частых. Не учитывать знаки препинания и регистр символов.
 # За основу возьмите любую статью из википедии или из документации к языку.
 # (Может помочь метод translate из модуля string)
+from operator import itemgetter
 
-
-article = 'Для практической реализации квантовых вычислений требуется решить \
+text = 'Для практической реализации квантовых вычислений требуется решить \
 сложную задачу: эффективно управлять динамикой квантовых битов (кубитов) при \
 наличии внешних шумов. Если бы кубиты были идеально изолированы от окружения, \
 то шумов бы не было, однако и воздействовать на эволюцию кубитов было бы \
@@ -28,32 +28,32 @@ article = 'Для практической реализации квантовы
 чтобы собрать достаточно статистической информации. Этот статистический метод \
 называется томографией квантовых состояний и требует значительных ресурсов как \
 по проведению эксперимента, так и по обработке собранных данных.'
-whole_dict: dict = {}
-
+result: dict = {}
+top_counter: int = 10
 
 # Очищаем строку от символов и переводим слова в нижний регистр
-article_to_list = list(article)
+text_to_list = list(text)
 
-for i in article:
+for i in text:
     if not i.isalpha() and not i.isspace():
-        article_to_list.remove(i)
+        text_to_list.remove(i)
 
-clean_article = ''.join(article_to_list).lower()
+clean_text: str = ''.join(text_to_list).lower()
 
-
-# Добавляем в результирующий словарь подсчет количества встречаемых слов
-list_of_words = clean_article.split()
+# Добавляем во временный словарь подсчет количества встречаемых слов
+list_of_words = clean_text.split()
+temp_dict: dict = {}
 
 for word in list_of_words:
-    if word not in whole_dict.keys():
-        whole_dict[word] = 1
+    if word in temp_dict.keys():
+        temp_dict[word] += 1
     else:
-        whole_dict[word] += 1
+        temp_dict[word] = 1
 
-# Создаем список топ-10 встречающихся слов
-max_values = max(whole_dict.values())
+# Создаем результирующий словарь, упорядочиваем его и распечатываем
+result = dict(sorted(temp_dict.items(), key=itemgetter(1), reverse=True))
 
-for key, value in whole_dict.items():
-    if value == max_values:
+for key, value in result.items():
+    if top_counter > 0:
         print(f'{key}: {value}')
-
+        top_counter -= 1
