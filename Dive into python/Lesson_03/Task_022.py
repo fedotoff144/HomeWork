@@ -3,6 +3,7 @@
 # За основу возьмите любую статью из википедии или из документации к языку.
 # (Может помочь метод translate из модуля string)
 
+
 article = 'Для практической реализации квантовых вычислений требуется решить \
 сложную задачу: эффективно управлять динамикой квантовых битов (кубитов) при \
 наличии внешних шумов. Если бы кубиты были идеально изолированы от окружения, \
@@ -27,8 +28,32 @@ article = 'Для практической реализации квантовы
 чтобы собрать достаточно статистической информации. Этот статистический метод \
 называется томографией квантовых состояний и требует значительных ресурсов как \
 по проведению эксперимента, так и по обработке собранных данных.'
-result: dict = {}
+whole_dict: dict = {}
+
+
+# Очищаем строку от символов и переводим слова в нижний регистр
+article_to_list = list(article)
 
 for i in article:
     if not i.isalpha() and not i.isspace():
-        article.replace(i, '')
+        article_to_list.remove(i)
+
+clean_article = ''.join(article_to_list).lower()
+
+
+# Добавляем в результирующий словарь подсчет количества встречаемых слов
+list_of_words = clean_article.split()
+
+for word in list_of_words:
+    if word not in whole_dict.keys():
+        whole_dict[word] = 1
+    else:
+        whole_dict[word] += 1
+
+# Создаем список топ-10 встречающихся слов
+max_values = max(whole_dict.values())
+
+for key, value in whole_dict.items():
+    if value == max_values:
+        print(f'{key}: {value}')
+
