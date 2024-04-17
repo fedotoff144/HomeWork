@@ -29,4 +29,3 @@ while len(my_stuff) > 0:
 # Выводим на печать результирующий список
 for i, _ in enumerate(result_list, 1):
     print(f'Список {i}: {_}')
-
