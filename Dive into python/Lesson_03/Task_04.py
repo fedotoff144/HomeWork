@@ -13,7 +13,9 @@ start_dict = {
     "Алексей": ("телефон", "палатка", "нож"),
     "Сергей": ("палатка", "спальный мешок", "нож", "кухонные принадлежности")
 }
-union_stuff: set = set()
+union_stuff = set()
 
-for value in start_dict.values():
-    union_stuff = union_stuff.union(set(value))
+list_of_stuff = list(start_dict.values())
+union_stuff = union_stuff.union(*list_of_stuff)
+
+print(union_stuff)
