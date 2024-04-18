@@ -8,14 +8,23 @@
 # Код должен расширяться на любое большее количество друзей.
 
 
-start_dict = {
-    "Иван": ("нож", "солнечные очки", "водонепроницаемая куртка"),
+data = {
+    "Иван": ("нож", "палатка", "солнечные очки", "водонепроницаемая куртка"),
     "Алексей": ("телефон", "палатка", "нож"),
     "Сергей": ("палатка", "спальный мешок", "нож", "кухонные принадлежности")
 }
-union_stuff = set()
+union_sets = set()
 
-list_of_stuff = list(start_dict.values())
-union_stuff = union_stuff.union(*list_of_stuff)
+list_sets = [set(x) for x in data.values()]
 
-print(union_stuff)
+# (Объединение множеств) Множество вещей всех друзей в походе
+union_sets = union_sets.union(*list_sets)
+# print('Все вещи которые взяли друзья в поход: ' + ', '.join(union_sets))
+
+# (Разность множеств) Уникальные вещи каждого из друзей
+diff_sets: set = list_sets[0]
+
+print('Список друзей и их уникальные вещи:')
+for _ in range(len(list_sets)):
+    for i in list_sets[1:]:
+        diff_sets = diff_sets.difference(i)
