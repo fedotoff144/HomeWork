@@ -19,12 +19,19 @@ list_sets = [set(x) for x in data.values()]
 
 # (Объединение множеств) Множество вещей всех друзей в походе
 union_sets = union_sets.union(*list_sets)
-# print('Все вещи которые взяли друзья в поход: ' + ', '.join(union_sets))
+print('Все вещи которые взяли друзья в поход: ' + ', '.join(union_sets))
 
 # (Разность множеств) Уникальные вещи каждого из друзей
-diff_sets: set = list_sets[0]
-
 print('Список друзей и их уникальные вещи:')
-for _ in range(len(list_sets)):
-    for i in list_sets[1:]:
-        diff_sets = diff_sets.difference(i)
+
+for i in range(len(list_sets)):
+    diff_sets: set = list_sets[i]
+    iterable_list = [x for j, x in enumerate(list_sets) if j != i]
+
+    for set_ in iterable_list:
+        diff_sets = diff_sets.difference(set_)
+
+    key_diff_sets = next(k for k, v in data.items() if diff_sets & set(v))
+    print(key_diff_sets + ' имеет: ' + ', '.join(diff_sets))
+
+# (Пересечение множеств) Вещи которые есть у каждого друга
