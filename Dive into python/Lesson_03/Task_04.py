@@ -11,13 +11,14 @@
 data = {
     "Иван": ("нож", "палатка", "солнечные очки", "водонепроницаемая куртка"),
     "Алексей": ("телефон", "палатка", "нож"),
-    "Сергей": ("палатка", "спальный мешок", "нож", "кухонные принадлежности")
+    "Сергей": ("палатка", "спальный мешок", "нож", "кухонные принадлежности"),
+    "Вадим": ("нож", "водонепроницаемая куртка", "чашка")
 }
-union_sets = set()
 
 list_sets = [set(x) for x in data.values()]
 
 # (Объединение множеств) Множество вещей всех друзей в походе
+union_sets = set()
 union_sets = union_sets.union(*list_sets)
 print('Все вещи которые взяли друзья в поход: ' + ', '.join(union_sets))
 
@@ -35,3 +36,10 @@ for i in range(len(list_sets)):
     print(key_diff_sets + ' имеет: ' + ', '.join(diff_sets))
 
 # (Пересечение множеств) Вещи которые есть у каждого друга
+intersec_sets: set = list_sets[0]
+iterable_list = [x for x in list_sets[1:]]
+
+for set_ in iterable_list:
+    intersec_sets = intersec_sets.intersection(set_)
+
+print('Каждый из друзей взял с собой: ' + ', '.join(intersec_sets))
