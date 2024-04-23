@@ -22,24 +22,24 @@ LOWER_LIMIT = 30
 MAX_AMOUNT = 5_000_000
 WEALTH_TAX = 0.1
 bank_account: int = 0
-count_operations: int = 0
-history = []
+count_operations: int = 1
+transaction_history = ['ИСТОРИЯ ОПЕРАЦИЙ:']
 
 
 def start_menu():
     while True:
-        choice = int(input('ВЫБЕРИТЕ MЕНЮ:\n1. Пополнить\n'
-                           '2. Снять\n3. Посмотреть историю\n0. Выйти\n'))
+        choice = input_validation('ВЫБЕРИТЕ MЕНЮ:\n1. Пополнить\n'
+                                  '2. Снять\n3. Посмотреть историю\n0. Выйти\n')
         match choice:
             case 0:
-                exit('Пока!')
+                exit('До свидания!')
             case 1:
                 print(f'На вашем счету: {bank_account}')
-                amount = int(input('Введите сумму пополнения: '))
+                amount = check_step('Введите сумму пополнения: ')
                 refill(amount)
             case 2:
                 print(f'На вашем счету: {bank_account}')
-                amount = int(input('Введите сумму снятия: '))
+                amount = check_step('Введите сумму снятия: ')
                 withdrawing_money(amount)
             case 3:
                 read_history()
@@ -47,26 +47,44 @@ def start_menu():
                 print('Команда не найдена.')
 
 
+def input_validation(mes):
+    """Prompts the user to input a number and validates the input
+    to ensure it is an integer.
+    """
+
+    while True:
+        try:
+            number = int(input(mes))
+            break
+        except ValueError:
+            mes = 'Ошибка. Попробуйте еще раз: '
+    return number
+
+
+def check_step(mes):
+    """Checks whether a number is a multiple of the specified step."""
+    while True:
+        num = input_validation(mes)
+        if num % STEP == 0:
+            return num
+        mes = 'Сумма должна быть кратна 50. Повторите ввод: '
+
+
 def refill(amount):
     global bank_account
     global count_operations
 
     increased_tax = wealth_tax(amount)
-    if increased_tax:
-        record = f'Налог на богатство: -{increased_tax}'
-        history.append(record)
-        bank_account -= increased_tax
-        print(f'{record}, \tОстаток на счете: {bank_account}')
-
+    fee_for_rich(increased_tax)
     additional_bonus = bonus(amount)
+
     bank_account += amount + additional_bonus
     count_operations += 1
 
     record = f'Сумма пополнения: {amount}, \t' \
              f'Дополнительный бонус: {additional_bonus}, \t' \
              f'ИТОГО на счете: {bank_account}'
-    history.append(record)
-    print(record)
+    write_history(record)
 
 
 def withdrawing_money(amount):
@@ -74,45 +92,31 @@ def withdrawing_money(amount):
     global count_operations
 
     increased_tax = wealth_tax(amount)
-    if increased_tax:
-        record = f'Налог на богатство: -{increased_tax}'
-        history.append(record)
-        bank_account -= increased_tax
-        print(f'{record}, Остаток на счете: {bank_account}')
+    fee_for_rich(increased_tax)
 
     additional_bonus = bonus(amount)
     commission = set_commission(amount)
     if bank_account < (amount + commission) + additional_bonus:
         print('На счете недостаточно средств')
         return None
-    bank_account -= (amount + commission) + additional_bonus
 
+    bank_account -= (amount + commission) - additional_bonus
     count_operations += 1
 
     record = f'Сумма снятия: {amount}, \t' \
              f'Комиссия за снятие: -{commission}, \t' \
              f'Дополнительный бонус: {additional_bonus}, \t' \
              f'ИТОГО на счете: {bank_account}'
-    history.append(record)
-    print(record)
+    write_history(record)
 
 
-def input_validation(mes):
-    while True:
-        try:
-            number = int(input(mes))
-            break
-        except:
-            print('Ошибка. Попробуйте еще раз: ')
-
-    return number
-
-
-def multiplicity_check(mes):
-    num = input_validation(mes)
-    if num % STEP != 0:
-        multiplicity_check('Сумма должна быть кратна 50. Повторите ввод: ')
-    return num
+def fee_for_rich(increased_tax):
+    global bank_account
+    if increased_tax:
+        bank_account -= increased_tax
+        record = f'Налог на богатство: -{increased_tax}, \t' \
+                 f'Остаток на счете: {bank_account}'
+        write_history(record)
 
 
 def wealth_tax(amnt):
@@ -140,8 +144,13 @@ def set_commission(amnt):
     return percent_mnt
 
 
+def write_history(record):
+    print(record)
+    transaction_history.append(record)
+
+
 def read_history():
-    for i in history:
+    for i in transaction_history:
         print(i)
 
 
