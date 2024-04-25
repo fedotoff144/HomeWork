@@ -68,3 +68,16 @@ MSFT
 о ценах акций. В данной задаче можно использовать фиктивные данные
 для тестирования и обучения.
 """
+from module_package import portfolio
+
+stocks = {"AAPL": 10, "GOOGL": 5, "MSFT": 8}
+original_prices = {"AAPL": 150.25, "GOOGL": 2500.75, "MSFT": 300.50}
+current_prices = {"AAPL": 155.25, "GOOGL": 2600.75, "MSFT": 800.50}
+
+total = portfolio.calculate_portfolio_value(stocks, original_prices)
+new_total = portfolio.calculate_portfolio_value(stocks, current_prices)
+most_profit_st = portfolio.get_most_profitable_stock(stocks, current_prices)
+
+print(total)
+print(new_total)
+print(most_profit_st)
