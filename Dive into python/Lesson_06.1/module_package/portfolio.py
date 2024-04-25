@@ -5,6 +5,7 @@ _primary_values: dict = {}
 
 
 def calculate_portfolio_value(stocks: dict, prices: dict) -> float:
+    """Finds the total value of a stock portfolio"""
     sum_dict = {key: value * prices[key] for key, value in stocks.items()}
 
     global _primary_values
@@ -16,6 +17,9 @@ def calculate_portfolio_value(stocks: dict, prices: dict) -> float:
 
 def calculate_portfolio_return(initial_value: float,
                                current_value: float) -> float:
+    """Finds and returns the difference (in numerical representation
+    as a percentage) between the initial and present value of stocks
+    """
     result = current_value / initial_value * 100 - 100
     return result
 
@@ -45,14 +49,14 @@ def clear_stock_original():
 
 if __name__ == '__main__':
     st = {"AAPL": 10, "GOOGL": 5, "MSFT": 8}
-    pric = {"AAPL": 150.25, "GOOGL": 2500.75, "MSFT": 300.50}
+    pr = {"AAPL": 150.25, "GOOGL": 2500.75, "MSFT": 300.50}
 
     val_1 = 1000.00
     val_2 = 1500.00
 
-    print(calculate_portfolio_value(st, pric))
+    print(calculate_portfolio_value(st, pr))
     print(calculate_portfolio_return(val_1, val_2))
     print(_primary_values)
-    pric = {"AAPL": 155.25, "GOOGL": 2600.75, "MSFT": 800.50}
+    pr = {"AAPL": 155.25, "GOOGL": 2600.75, "MSFT": 800.50}
 
-    print(*get_most_profitable_stock(st, pric))
+    print(*get_most_profitable_stock(st, pr))
