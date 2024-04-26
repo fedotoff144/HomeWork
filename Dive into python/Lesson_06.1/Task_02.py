@@ -32,19 +32,12 @@ from module_package import chess_module as cm
 chessboard_size: int = 8
 safe_combinations = []
 
-# while len(safe_combinations) < 3:
-#     comb = cm.generation_random_comb(chessboard_size)
-#     if (cm.perpendicular_intersection_check(comb, chessboard_size) and
-#             cm.diagonal_intersection_check(comb, chessboard_size)):
-#         safe_combinations.append(comb)
-#
-# for i in safe_combinations:
-#     temp = cm.chessboard_drawing(i, chessboard_size)
-#     cm.chessboard_print(temp)
-#     print('-------------------------')
+while len(safe_combinations) != 3:
+    comb = cm.generation_random_comb(chessboard_size)
+    if (cm.perpendicular_intersection_check(comb, chessboard_size) and
+            cm.diagonal_intersection_check(comb, chessboard_size)):
+        safe_combinations.append(comb)
 
-
-comb = cm.generation_random_comb(chessboard_size)
-print(comb)
-temp = cm.chessboard_drawing(comb, chessboard_size)
-cm.chessboard_print(temp)
+for i, j in enumerate(safe_combinations, start=1):
+    print(f'\tРАССТАНОВКА {i}')
+    cm.chessboard_print(cm.chessboard_drawing(j, chessboard_size))

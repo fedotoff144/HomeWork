@@ -1,5 +1,4 @@
 import random
-from random import randint
 
 __all__ = ['generation_random_comb', 'perpendicular_intersection_check',
            'diagonal_intersection_check', 'chessboard_drawing',
@@ -8,17 +7,13 @@ __all__ = ['generation_random_comb', 'perpendicular_intersection_check',
 
 def generation_random_comb(len_comb: int) -> list[tuple]:
     """Random combination generator"""
-    elements_for_coord = [i for i in range(len_comb)]
-    random.shuffle(elements_for_coord)
-    # combination = [(random.choice(elements_for_coord),
-    #                 random.choice(elements_for_coord)) for _ in range(len_comb)]
+    set_coordinates = [i for i in range(len_comb)] * 2
+    random.shuffle(set_coordinates)
     combination = []
-    for _ in elements_for_coord:
-        x = random.choice(elements_for_coord)
-        y = random.choice(elements_for_coord)
-        combination.append(x, y)
-        elements_for_coord.pop(x)
-        elements_for_coord.pop(y)
+    for i in range(len_comb):
+        x = set_coordinates[i]
+        y = set_coordinates[len_comb + i]
+        combination.append((x, y))
     return combination
 
 
@@ -36,9 +31,13 @@ def perpendicular_intersection_check(combination: list[tuple],
 
 def diagonal_intersection_check(combinations: list[tuple],
                                 size_chessboard: int) -> bool:
+    """Checks whether the diagonals of each queen
+    intersect the coordinates of other queens
+    """
     for item in combinations:
-        reduced_list = combinations.remove(item)
         all_directions = []
+        reduced_list = combinations.copy()
+        reduced_list.remove(item)
         x, y = item[0], item[1]
 
         while True:
@@ -76,9 +75,9 @@ def diagonal_intersection_check(combinations: list[tuple],
             temp_tuple = x, y
             all_directions.append(temp_tuple)
 
-        # for _ in all_directions:
-        #     if _ in reduced_list:
-        #         return False
+        for i in all_directions:
+            if i in reduced_list:
+                return False
 
     return True
 
@@ -107,26 +106,12 @@ if __name__ == '__main__':
     chessboard_size: int = 8
     safe_combinations = []
 
-    # while len(safe_combinations) == 0:
-    #     comb = generation_random_comb(chessboard_size)
-    #     if (perpendicular_intersection_check(comb, chessboard_size) and
-    #             diagonal_intersection_check(comb, chessboard_size)):
-    #         safe_combinations.append(comb)
-    #
-    # for i in safe_combinations:
-    #     temp = chessboard_drawing(i, chessboard_size)
-    #     chessboard_print(temp)
+    while len(safe_combinations) != 3:
+        comb = generation_random_comb(chessboard_size)
+        if (perpendicular_intersection_check(comb, chessboard_size) and
+                diagonal_intersection_check(comb, chessboard_size)):
+            safe_combinations.append(comb)
 
-    elements_for_coord = [i for i in range(chessboard_size)] * 2
-    print(elements_for_coord)
-    combination = []
-
-    for _ in range(chessboard_size):
-        x = random.choice(elements_for_coord)
-        y = random.choice(elements_for_coord)
-        combination.append((x, y))
-        elements_for_coord.remove(x)
-        elements_for_coord.remove(y)
-
-    print(elements_for_coord)
-    print(combination)
+    for i, j in enumerate(safe_combinations, start=1):
+        print(f'\tРАССТАНОВКА {i}')
+        chessboard_print(chessboard_drawing(j, chessboard_size))
