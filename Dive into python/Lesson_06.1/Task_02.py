@@ -29,10 +29,11 @@ _SAFE_COMB_EXAMPLE = [(0, 0), (6, 1), (4, 2), (7, 3),
 """
 from module_package import chess_module as cm
 
-chessboard_size: int = 8
 safe_combinations = []
+chessboard_size: int = 8
+len_safe_comb = 3
 
-while len(safe_combinations) != 3:
+while len(safe_combinations) != len_safe_comb:
     comb = cm.generation_random_comb(chessboard_size)
     if (cm.perpendicular_intersection_check(comb, chessboard_size) and
             cm.diagonal_intersection_check(comb, chessboard_size)):
