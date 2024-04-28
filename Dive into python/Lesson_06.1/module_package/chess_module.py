@@ -113,5 +113,5 @@ if __name__ == '__main__':
             safe_combinations.append(comb)
 
     for i, j in enumerate(safe_combinations, start=1):
-        print(f'\tРАССТАНОВКА {i}')
+        print(f'РАССТАНОВКА {i}')
         chessboard_print(chessboard_drawing(j, chessboard_size))

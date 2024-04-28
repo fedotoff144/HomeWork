@@ -30,7 +30,9 @@ _SAFE_COMB_EXAMPLE = [(0, 0), (6, 1), (4, 2), (7, 3),
 from module_package import chess_module as cm
 
 safe_combinations = []
-chessboard_size: int = 8
+chessboard_size: int = int(input('Укажите число ферзей на шахмотной доске.' \
+                                 'ВНИМАНИЕ! колчиство ферзей равнозначно длине' \
+                                 ' шахмотной доски!\nВведите число: '))
 len_safe_comb = 3
 
 while len(safe_combinations) != len_safe_comb:
@@ -40,5 +42,5 @@ while len(safe_combinations) != len_safe_comb:
         safe_combinations.append(comb)
 
 for i, j in enumerate(safe_combinations, start=1):
-    print(f'\tРАССТАНОВКА {i}')
+    print(f'РАССТАНОВКА {i}')
     cm.chessboard_print(cm.chessboard_drawing(j, chessboard_size))
