@@ -7,13 +7,13 @@
 
 """
 import random
-from pathlib import Path
 
 
-def filling_out_file(file_name:str, count_line:int):
+def filling_out_file(file_name: str, count_line: int):
     with open(file_name, 'a', encoding='utf-8') as f:
         for i in range(count_line):
-            f.write(f'{random.randint(-1000, 1001)} | {random.uniform(-1000, 1001)}\n')
+            f.write(f'{random.randint(-1000, 1001)} | ' \
+                    f'{random.uniform(-1000, 1001)}\n')
 
 
 filling_out_file('fill_out.txt', 10)
