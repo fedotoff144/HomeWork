@@ -7,7 +7,7 @@
 from pathlib import Path
 
 
-def sorting_files(home_dir: str):
+def sorting_files(home_dir):
     for obj in home_dir.iterdir():
         if obj.is_file():
             if obj.name.__contains__('.jpg') or obj.name.__contains__('.png'):
