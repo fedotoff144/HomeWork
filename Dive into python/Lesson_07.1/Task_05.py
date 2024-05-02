@@ -40,7 +40,7 @@ def mix_files(file_1, file_2):
             line_f1 = line_f1.replace('\n', '').split('|')
             line_f2 = line_f2.replace('\n', '')
             res_mult = int(line_f1[0]) * float(line_f1[1])
-            
+
             if res_mult <= 0:
                 line = f'{line_f2.lower()} {res_mult * (-1)}\n'
                 f3.write(line)
