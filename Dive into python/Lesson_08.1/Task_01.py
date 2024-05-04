@@ -23,3 +23,10 @@ test/users/names.txt
 Дополнительно:
 Решить задания, которые не успели решить на семинаре(6, 7)
 """
+from modules import files_handling as fh
+
+data = fh.get_list_files('D:\GeekBrains\HomeWork\Dive into python\Lesson_08.1')
+
+fh.create_json_file(data)
+fh.create_csv_file(data)
+fh.create_binary_file(data)

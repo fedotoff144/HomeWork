@@ -28,7 +28,10 @@ import json
 import pickle
 from pathlib import Path
 
-__all__ = []
+__all__ = [
+    'get_list_files', 'create_json_file', 'read_json_file', 'create_csv_file',
+    'read_csv_file', 'create_binary_file', 'read_binary_file'
+]
 
 
 def get_list_files(path: str) -> list[dict]:
@@ -55,12 +58,12 @@ def get_list_files(path: str) -> list[dict]:
     return structure_list
 
 
-def write_json_file(data: list):
+def create_json_file(data: list):
     with open('result.json', 'w', encoding='utf-8') as f:
         json.dump(data, f)
 
 
-def read_json_file(file_name: str):
+def read_json_file(file_name: str) -> list:
     with open(file_name, 'r', encoding='utf-8') as f:
         data = json.load(f)
     return data
@@ -68,7 +71,7 @@ def read_json_file(file_name: str):
 
 def create_csv_file(data: list):
     with open('result.csv', 'w', newline='', encoding='utf-8') as f:
-        csv_writer = csv.DictWriter(f, fieldnames=['name', 'parent', 'type', \
+        csv_writer = csv.DictWriter(f, fieldnames=['name', 'parent', 'type',
                                                    'size'], dialect='excel',
                                     quoting=csv.QUOTE_NONNUMERIC)
         csv_writer.writeheader()
@@ -77,9 +80,9 @@ def create_csv_file(data: list):
 
 def read_csv_file(file_name: str) -> list:
     with open(file_name, 'r', newline='', encoding='utf-8') as f:
-        f_read = csv.DictReader(f,
-                                fieldnames=['name', 'parent', 'type', 'size'],
-                                dialect='excel', quoting=csv.QUOTE_NONNUMERIC)
+        f_read = csv.DictReader(f, fieldnames=['name', 'parent', 'type',
+                                               'size'], dialect='excel',
+                                quoting=csv.QUOTE_NONNUMERIC)
         all_data = [line for i, line in enumerate(f_read) if i != 0]
     return all_data
 
@@ -89,17 +92,21 @@ def create_binary_file(data: list):
         pickle.dump(data, f)
 
 
+def read_binary_file(file_name) -> list:
+    with open(file_name, 'rb') as f:
+        all_data = pickle.load(f)
+    return all_data
+
+
 if __name__ == '__main__':
     path_dir = 'D:\GeekBrains\HomeWork\Dive into python\Lesson_08.1'
     list_of_structure = get_list_files(path_dir)
 
-    # write_json_file(data)
-    # output_json = read_json_file('result.json')
-    # print(output_json)
+    create_json_file(list_of_structure)
+    print(read_json_file('result.json'))
 
-    # create_csv_file(data)
-    # output_csv = read_csv_file('result.csv')
-    # print(output_csv)
+    create_csv_file(list_of_structure)
+    print(read_csv_file('result.csv'))
 
-    print(list_of_structure)
     create_binary_file(list_of_structure)
+    print(read_binary_file('result.pickle'))
