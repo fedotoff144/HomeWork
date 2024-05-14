@@ -20,8 +20,10 @@ class Person:
         self.phone = phone
 
     def full_name(self):
-        return f'Фамилия: {self.lastname}, Имя: {self.firstname} , Отчество: {self.surname}' \
-            if self.surname else f'Фамилия: {self.lastname}, Имя: {self.firstname}'
+        if self.surname:
+            return f'Фамилия: {self.lastname}, Имя: {self.firstname} ,' + \
+                f' Отчество: {self.surname}'
+        return f'Фамилия: {self.lastname}, Имя: {self.firstname}'
 
     def birthday(self):
         self.__age += 1
@@ -33,14 +35,19 @@ class Person:
 
 class Employee(Person):
     def __init__(self, empl_id, *args, **kwargs):
+        self.empl_id = self.validate_id(empl_id)
+        self.access_level = self.set_access_level()
+        super().__init__(*args, **kwargs)
+
+    def validate_id(self, empl_id):
         pattern = r'^\d{6}$'
         if not re.match(pattern, str(empl_id)):
-            self.empl_id = random.randint(100000, 999999)
-        else:
-            self.empl_id = empl_id
+            return random.randint(100000, 999999)
+        return empl_id
+
+    def set_access_level(self):
         id_sum = sum(int(i) for i in str(self.empl_id))
-        self.access_level = id_sum % 7
-        super().__init__(*args, **kwargs)
+        return id_sum % 7
 
     def show_data(self):
         return self.full_info() + f', {self.empl_id=}, {self.access_level=}'
