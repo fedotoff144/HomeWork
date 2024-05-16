@@ -10,7 +10,7 @@
 
 
 class Archive:
-    _lines_archive = []
+    _strings_archive = []
     _nums_archive = []
     _last = None
 
@@ -20,32 +20,38 @@ class Archive:
         cls._last = super().__new__(cls)
         return cls._last
 
-    def __init__(self, num: int, line: str):
+    def __init__(self, num: int, string: str):
         self.num = num
-        self.line = line
+        self.string = string
+
+    def __str__(self):
+        return f'Instance Archive class. num: {self.num}, string: {self.string}'
+
+    def __repr__(self):
+        return f'Archive({self.num}, {self.string})'
 
     def add_record(self):
-        Archive._lines_archive.append(self.line)
+        Archive._strings_archive.append(self.string)
         Archive._nums_archive.append(self.num)
 
-    def lines_archive(self):
-        return Archive._lines_archive
+    def strings_archive(self):
+        return Archive._strings_archive
 
     def nums_archive(self):
         return Archive._nums_archive
 
 
 arch1 = Archive(15, 'Yes')
-print(f'{arch1.num=}\t{arch1.line=}')
+print(f'{arch1.num=}\t{arch1.string=}')
 print(f'Nums archive: {arch1.nums_archive()}\tL'
-      f'ines archive: {arch1.lines_archive()}\n')
+      f'ines archive: {arch1.strings_archive()}\n')
 
 arch2 = Archive(10, 'No')
-print(f'{arch2.num=}\t{arch2.line=}')
+print(f'{arch2.num=}\t{arch2.string=}')
 print(f'Nums archive: {arch2.nums_archive()}\t'
-      f'Lines archive: {arch2.lines_archive()}\n')
+      f'Lines archive: {arch2.strings_archive()}\n')
 
 arch3 = Archive(5, 'Maybe')
-print(f'{arch3.num=}\t{arch3.line=}')
+print(f'{arch3.num=}\t{arch3.string=}')
 print(f'Nums archive: {arch3.nums_archive()}\t'
-      f'Lines archive: {arch3.lines_archive()}\n')
+      f'Lines archive: {arch3.strings_archive()}\n')

@@ -14,6 +14,9 @@ class Rectangle:
     def __str__(self):
         return f'length: {self.length}\twidth: {self.width}'
 
+    def __repr__(self):
+        return f'Rectangle({self.length}, {self.width})'
+
     def perimeter(self):
         return (self.length + self.width) * 2
 

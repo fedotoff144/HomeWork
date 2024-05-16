@@ -14,11 +14,11 @@ class Rectangle:
         self.length = length
         self.width = width if width else length
 
-    def perimeter(self):
-        return (self.length + self.width) * 2
+    def __str__(self):
+        return f'length: {self.length}\twidth: {self.width}'
 
-    def area_rectangle(self):
-        return self.length * self.width
+    def __repr__(self):
+        return f'Rectangle({self.length}, {self.width})'
 
     # def __add__(self, other):
     #     length = self.length + other.length
@@ -40,6 +40,12 @@ class Rectangle:
         if result < 0:
             return 'Minus is not allowed'
         return result
+
+    def perimeter(self):
+        return (self.length + self.width) * 2
+
+    def area_rectangle(self):
+        return self.length * self.width
 
 
 rect1 = Rectangle(5, 10)

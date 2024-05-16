@@ -37,6 +37,12 @@ class Archive:
         self.num = num
         self.string = string
 
+    def __str__(self):
+        return f'Instance Archive class. num: {self.num}, string: {self.string}'
+
+    def __repr__(self):
+        return f'Archive({self.num}, {self.string})'
+
     def add_record(self):
         """The method adds records about the old class
         when creating a new one."""
