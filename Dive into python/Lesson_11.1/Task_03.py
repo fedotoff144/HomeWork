@@ -17,16 +17,20 @@ class MyString(str):
 
 
 class Archive:
-    """The Archive class stores a pair of properties: number and string.
+    """
+    The Archive class stores a pair of properties: number and string.
     When creating a new instance of a class, the old data from previously
-    created instances are saved in a pair of lists - archives"""
+    created instances are saved in a pair of lists - archives
+    """
     _strings_archive = []
     _nums_archive = []
     _last = None
 
     def __new__(cls, *args, **kwargs):
-        """Returns a class as itself, recording information
-        about previously created classes in lists."""
+        """
+        Returns a class as itself, recording information
+        about previously created classes in lists.
+        """
         if cls._last is not None:
             Archive.add_record(Archive._last)
         cls._last = super().__new__(cls)
@@ -38,25 +42,33 @@ class Archive:
         self.string = string
 
     def __str__(self):
+        """Returns a string representation of the class instance."""
         return f'Instance Archive class. num: {self.num}, string: {self.string}'
 
     def __repr__(self):
+        """Returns the official string representation of the class instance."""
         return f'Archive({self.num}, {self.string})'
 
     def add_record(self):
-        """The method adds records about the old class
-        when creating a new one."""
+        """
+        The method adds records about the old class
+        when creating a new one.
+        """
         Archive._strings_archive.append(self.string)
         Archive._nums_archive.append(self.num)
 
     def lines_archive(self):
-        """Returns a list of string properties
-        of previously created instances of the class."""
+        """
+        Returns a list of string properties
+        of previously created instances of the class.
+        """
         return Archive._strings_archive
 
     def nums_archive(self):
-        """Returns a list of integer properties
-        of previously created instances of the class."""
+        """
+        Returns a list of integer properties
+        of previously created instances of the class.
+        """
         return Archive._nums_archive
 
 

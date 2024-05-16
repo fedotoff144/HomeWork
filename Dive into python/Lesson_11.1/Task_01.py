@@ -9,8 +9,10 @@ import time
 
 
 class MyString(str):
-    """A custom string subclass that adds additional attributes
-    to a string object: the author of the string and the time it was created."""
+    """
+    A custom string subclass that adds additional attributes
+    to a string object: the author of the string and the time it was created.
+    """
 
     def __new__(cls, value: str, author: str = 'unknown'):
         """Create a new instance of MyString."""
