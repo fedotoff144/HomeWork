@@ -12,12 +12,13 @@
 Добавьте в список повторяющиеся элементы и сравните на результаты.
 """
 
-lst = [1, 20.5, 'Hello world', True, [0, 1, 2], (3, 4), {'one': 1, 'two': 2}]
+lst = [1, 20.5, 'Hello world', True, [0, 1, 2], (3, 4), {'one': 1, 'two': 2},
+       {1, 2, 3}]
 
 for i, _ in enumerate(lst, start=1):
     print(f'{i}\t{_}\t'
           f'{id(_)}\t'
           f'{_.__sizeof__()}\t'
-          f'{hash(_) if hash(_) else "unhashable type"}\t'
+          f'{hash(_) if not isinstance(_, (list, dict, set)) else "unhashable type"}\t'
           f'{True if isinstance(_, int) else None}\t'
           f'{True if isinstance(_, str) else None}')
