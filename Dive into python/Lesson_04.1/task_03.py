@@ -92,6 +92,7 @@ print(operations)
 """
 import decimal
 
+
 MULTIPLICITY = 50
 PERCENT_REMOVAL = decimal.Decimal(15) / decimal.Decimal(1000)  # some explanation
 MIN_REMOVAL = 30
