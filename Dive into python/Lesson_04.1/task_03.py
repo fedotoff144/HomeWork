@@ -111,7 +111,8 @@ operations = []
 
 
 # Проверка кратности суммы при пополнении и снятии.
-def check_multiplicity(amount):
+def check_multiplicity(amount)->bool:
+    
     pass
 
 
