@@ -113,9 +113,10 @@ operations = []
 
 # Проверка кратности суммы при пополнении и снятии.
 def check_multiplicity(amount):
-    if amount % MULTIPLICITY:
+    if amount % MULTIPLICITY == 0:
         return True
     else:
+        print(f'Сумма должна быть кратной {MULTIPLICITY} у.е.')
         return False
 
 
@@ -133,20 +134,17 @@ def deposit(amount):
 def withdraw(amount):
     global bank_account
     global count
-    if check_multiplicity(amount):
-        withdrawal_fee = amount * PERCENT_REMOVAL
-        withdrawal_fee = MIN_REMOVAL if withdrawal_fee < MIN_REMOVAL else \
-            MAX_REMOVAL if withdrawal_fee > MAX_REMOVAL else withdrawal_fee
-        withdrawal_amount = amount + withdrawal_fee
-        if bank_account > withdrawal_amount:
-            bank_account = bank_account - withdrawal_amount
-            # print(
-            #     f'Transaction amount = {amount}, withdrawal commission = {withdrawal_fee}, balance = {bank_account}')
-            count += 1
-        # else:
-        #     print(
-        #         f'Insufficient funds. Balance: {bank_account}. Withdrawal amount = {withdrawal_amount}.')
-            operations.append(f'Снятие с карты {amount} у.е. Процент за снятие {withdrawal_fee} у.е.. Итого {bank_account} у.е.')
+    check_multiplicity(amount)
+    withdrawal_fee = amount * PERCENT_REMOVAL
+    withdrawal_fee = MIN_REMOVAL if withdrawal_fee < MIN_REMOVAL else \
+        MAX_REMOVAL if withdrawal_fee > MAX_REMOVAL else withdrawal_fee
+    withdrawal_amount = amount + withdrawal_fee
+    if bank_account > withdrawal_amount:
+        bank_account = bank_account - withdrawal_amount
+        count += 1
+        operations.append(f'Снятие с карты {amount} у.е. Процент за снятие {int(withdrawal_fee)} у.е.. Итого {int(bank_account)} у.е.')
+    else:
+        operations.append(f'Недостаточно средств. Сумма с комиссией {int(withdrawal_amount)} у.е. На карте {bank_account} у.е.')
 
 
 # Завершение работы и вывод итоговой информации о состоянии счета и проведенных операциях.
@@ -159,45 +157,15 @@ def exit():
     operations.append(f'Возьмите карту на которой {bank_account} у.е.')
 
 
-while True:
-    cmd = input(
-        f'Enter command ({CMD_REPLENISH} = replenish, {CMD_WITHDRAW} = withdraw, '
-        f'{CMD_EXIT} = exit:\n')
-    if cmd == CMD_EXIT:
-        print(f'Balance: {bank_account}\nBy-by')
-        break
-    if bank_account > RICHNESS_SUM:
-        tax_amount = bank_account * RICHNESS_PERCENT
-        bank_account = bank_account - tax_amount
-        print(f'The wealth tax has been written off in the amount of '
-              f'{tax_amount}. Balance: {bank_account}')
-    if cmd in (CMD_REPLENISH, CMD_WITHDRAW):
-        amount = decimal.Decimal(
-            input(f'Enter amount multimple {MULTIPLICITY} :\n'))
-        while amount % MULTIPLICITY:
-            amount = decimal.Decimal(
-                input(f'Enter amount multimple {MULTIPLICITY} :\n'))
-        if cmd == CMD_WITHDRAW:
-            withdrawal_fee = amount * PERCENT_REMOVAL
-            withdrawal_fee = MIN_REMOVAL if withdrawal_fee < MIN_REMOVAL else \
-                MAX_REMOVAL if withdrawal_fee > MAX_REMOVAL else withdrawal_fee
-            withdrawal_amount = amount + withdrawal_fee
-            if bank_account > withdrawal_amount:
-                bank_account = bank_account - withdrawal_amount
-                print(
-                    f'Transaction amount = {amount}, withdrawal commission = {withdrawal_fee}, balance = {bank_account}')
-                count += 1
-            else:
-                print(
-                    f'Insufficient funds. Balance: {bank_account}. Withdrawal amount = {withdrawal_amount}.')
-        elif cmd == CMD_REPLENISH:
-            bank_account += amount
-            print(f'Your balance is {bank_account}')
-            count += 1
+deposit(1000)
+withdraw(200)
+withdraw(300)
+deposit(500)
+withdraw(3000)
+exit()
 
-        if count % COUNTER4PERCENTAGES == 0:
-            bonus = bank_account * PERCENT_DEPOSIT
-            bank_account = bank_account + bonus
-            print(
-                f'You have performed three operations. Your bonus is {bonus}. Balance is '
-                f'{bank_account}')
+print(operations)
+
+# ['Пополнение карты на 1000 у.е. Итого 1000 у.е.', 'Снятие с карты 200 у.е. Процент за снятие 30 у.е.. Итого 770 у.е.', 'Снятие с карты 300 у.е. Процент за снятие 30 у.е.. Итого 440 у.е.', 'Пополнение карты на 500 у.е. Итого 940 у.е.', 'Недостаточно средств. Сумма с комиссией 3045 у.е. На карте 940 у.е.', 'Возьмите карту на которой 940 у.е.']
+
+
