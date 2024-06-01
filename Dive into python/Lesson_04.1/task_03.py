@@ -112,24 +112,51 @@ operations = []
 
 
 # Проверка кратности суммы при пополнении и снятии.
-def check_multiplicity(amount)->bool:
-    
-    pass
+def check_multiplicity(amount):
+    if amount % MULTIPLICITY:
+        return True
+    else:
+        return False
 
 
 # Пополнение счёта.
 def deposit(amount):
-    pass
+    global bank_account
+    global count
+    if check_multiplicity(amount):
+        bank_account += decimal.Decimal(amount)
+        count += 1
+        operations.append(f'Пополнение карты на {amount} у.е. Итого {bank_account} у.е.')
 
 
 # Снятие денег.
 def withdraw(amount):
-    pass
+    global bank_account
+    global count
+    if check_multiplicity(amount):
+        withdrawal_fee = amount * PERCENT_REMOVAL
+        withdrawal_fee = MIN_REMOVAL if withdrawal_fee < MIN_REMOVAL else \
+            MAX_REMOVAL if withdrawal_fee > MAX_REMOVAL else withdrawal_fee
+        withdrawal_amount = amount + withdrawal_fee
+        if bank_account > withdrawal_amount:
+            bank_account = bank_account - withdrawal_amount
+            # print(
+            #     f'Transaction amount = {amount}, withdrawal commission = {withdrawal_fee}, balance = {bank_account}')
+            count += 1
+        # else:
+        #     print(
+        #         f'Insufficient funds. Balance: {bank_account}. Withdrawal amount = {withdrawal_amount}.')
+            operations.append(f'Снятие с карты {amount} у.е. Процент за снятие {withdrawal_fee} у.е.. Итого {bank_account} у.е.')
 
 
 # Завершение работы и вывод итоговой информации о состоянии счета и проведенных операциях.
 def exit():
-    pass
+    global bank_account
+    if bank_account > RICHNESS_SUM:
+        tax_amount = bank_account * RICHNESS_PERCENT
+        bank_account -= tax_amount
+        operations.append(f'Вычтен налог на богатство {RICHNESS_PERCENT}% в сумме {tax_amount} у.е. Итого {bank_account} у.е.')
+    operations.append(f'Возьмите карту на которой {bank_account} у.е.')
 
 
 while True:
