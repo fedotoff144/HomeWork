@@ -27,15 +27,16 @@ def fibonacci():
     b = 0
     while True:
         if a == 0:
-            a, b = 1, 0
+            a = 1
             yield 0
-        if a == 1 and b == 0:
-            a, b = 1, 1
+        if a == 1:
+            a, b = a + b, a
             yield 1
         a, b = a + b, a
-        yield a + b
+        yield b
+
 
 f = fibonacci()
 
-for _ in range(10):
+for _ in range(20):
     print(next(f))
