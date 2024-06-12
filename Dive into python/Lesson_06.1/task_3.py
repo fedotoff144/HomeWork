@@ -17,3 +17,29 @@ print(generate_boards())
     [(1, 6), (2, 1), (3, 5), (4, 2), (5, 8), (6, 3), (7, 7), (8, 4)]
 ]
 """
+import random
+from task_2 import show_table, check_queens
+
+NUMS = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8]
+board_list = []
+
+
+def generate_boards():
+    set_coordinates = [i for i in range(8)] * 2
+    random.shuffle(set_coordinates)
+    combination = []
+    for i in range(8):
+        x = set_coordinates[i]
+        y = set_coordinates[8 + i]
+        combination.append((x, y))
+    return combination
+
+
+if __name__ == '__main__':
+    board_list = []
+    while len(board_list) != 2:
+        combination = generate_boards()
+        if check_queens(combination):
+            board_list.append(combination)
+
+    print(board_list)
