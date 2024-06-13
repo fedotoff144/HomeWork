@@ -18,28 +18,26 @@ print(generate_boards())
 ]
 """
 import random
-from task_2 import show_table, check_queens
+import task_2
 
-NUMS = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8]
 board_list = []
 
 
-def generate_boards():
-    set_coordinates = [i for i in range(8)] * 2
-    random.shuffle(set_coordinates)
-    combination = []
-    for i in range(8):
-        x = set_coordinates[i]
-        y = set_coordinates[8 + i]
-        combination.append((x, y))
-    return combination
+def generate_boards() -> list[tuple]:
+    """Returns a randomly generated list of queens coordinates."""
+    rows = (1, 2, 3, 4, 5, 6, 7, 8)
+    columns = [1, 2, 3, 4, 5, 6, 7, 8]
+    random.shuffle(columns)
+    return [(rows[i], columns[i]) for i in range(8)]
 
 
 if __name__ == '__main__':
     board_list = []
-    while len(board_list) != 2:
+    while len(board_list) <= 3:
         combination = generate_boards()
-        if check_queens(combination):
+        if task_2.check_queens(combination):
             board_list.append(combination)
 
-    print(board_list)
+    for _ in board_list:
+        task_2.show_table(_)
+        print()

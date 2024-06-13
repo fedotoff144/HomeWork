@@ -18,69 +18,74 @@ False
 """
 __all__ = ['show_table', 'check_queens']
 
-
 queens = [(1, 1), (2, 3), (3, 5), (4, 7), (5, 2), (6, 4), (7, 6), (8, 8)]
 
 
-def show_table(queens: list[tuple]):
-    table = [[0 for _ in range(8)] for _ in range(8)]
-    for q in queens:
-        table[q[1] - 1][q[0] - 1] = 1
-    for _ in table:
+def show_table(combinations: list[tuple]) -> None:
+    """Displays the arrangement of queens on the chessboard."""
+    chessboard = [[0 for _ in range(8)] for _ in range(8)]
+    for comb in combinations:
+        chessboard[comb[0] - 1][comb[1] - 1] = 1
+    for _ in chessboard:
         print(_)
 
 
 def is_attacking(q1: tuple, q2: tuple) -> bool:
-    x1, y1 = q1
-    x2, y2 = q2
+    """The function checks whether the queens beat each other."""
+    row1, column1 = q1
+    row2, column2 = q2
 
-    if x1 == x2 or y1 == y2:
-        return False
-
-    while x1 <= 8 or y1 <= 8:
-        x1 += 1
-        y1 += 1
-        if x1 == x2 and y1 == y2:
+    while row1 <= 8 or column1 <= 8:
+        row1 += 1
+        column1 += 1
+        if row1 == row2 and column1 == column2:
             return False
 
-    x1, y1 = q1
-    x2, y2 = q2
-    while x1 <= 8 or y1 >= 1:
-        x1 += 1
-        y1 -= 1
-        if x1 == x2 and y1 == y2:
+    row1, column1 = q1
+    row2, column2 = q2
+    while row1 <= 8 or column1 >= 1:
+        row1 += 1
+        column1 -= 1
+        if row1 == row2 and column1 == column2:
             return False
 
-    x1, y1 = q1
-    x2, y2 = q2
-    while x1 >= 1 or y1 >= 1:
-        x1 -= 1
-        y1 -= 1
-        if x1 == x2 and y1 == y2:
+    row1, column1 = q1
+    row2, column2 = q2
+    while row1 >= 1 or column1 >= 1:
+        row1 -= 1
+        column1 -= 1
+        if row1 == row2 and column1 == column2:
             return False
 
-    x1, y1 = q1
-    x2, y2 = q2
-    while x1 >= 1 or y1 <= 8:
-        x1 -= 1
-        y1 += 1
-        if x1 == x2 and y1 == y2:
+    row1, column1 = q1
+    row2, column2 = q2
+    while row1 >= 1 or column1 <= 8:
+        row1 -= 1
+        column1 += 1
+        if row1 == row2 and column1 == column2:
             return False
 
     return True
 
 
 def check_queens(queens: list[tuple]) -> bool:
+    """Checks all possible pairs of queens."""
     if len(queens) <= 1:
         return True
+
+    set_rows = {i[0] for i in queens}
+    set_columns = {i[1] for i in queens}
+    if len(set_rows) != 8 or len(set_columns) != 8:
+        return False
 
     for i, q in enumerate(queens[:-1]):
         for q_next in queens[i + 1:]:
             if not is_attacking(q, q_next):
                 return False
+    return True
 
 
 if __name__ == '__main__':
-    queens = [(1, 1), (2, 3), (3, 5), (4, 7), (5, 2), (6, 4), (7, 6), (8, 8)]
+    queens = [(1, 6), (2, 1), (3, 5), (4, 2), (5, 8), (6, 3), (7, 7), (8, 4)]
     show_table(queens)
     print(check_queens(queens))
