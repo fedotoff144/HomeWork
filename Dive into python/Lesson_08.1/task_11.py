@@ -32,34 +32,64 @@
   в список results в виде словаря {'Path': path, 'Type': 'Directory', 'Size': size}.
 """
 import os
-
-
-def traverse_directory(directory: os.path):
-    result_of_walk = []
-    for obj in os.walk(directory):
-        # dict_in_loop = {}
-        abs_path = os.path.abspath(str(obj))
-        file_or_not = os.path.relpath(str(obj))
-        # size_obj = os.path.getsize(str(obj))
-        print(f'{abs_path=}\n\t{file_or_not=}')
+import json
+import csv
+import pickle
 
 
 def get_dir_size(path):
-    pass
+    """Рассчитывает общий размер директории."""
+    total_size = 0
+    for dirpath, dirnames, filenames in os.walk(path):
+        for f in filenames:
+            fp = os.path.join(dirpath, f)
+            total_size += os.path.getsize(fp)
+    return total_size
 
-def save_results_to_json():
-    pass
+
+def traverse_directory(directory):
+    """Рекурсивно обходит директорию и возвращает результаты."""
+    results = []
+    for root, dirs, files in os.walk(directory):
+        for name in files + dirs:
+            path = os.path.join(root, name)
+            if os.path.isfile(path):
+                size = os.path.getsize(path)
+                results.append({'Path': path, 'Type': 'File', 'Size': size})
+            else:
+                size = get_dir_size(path)
+                results.append(
+                    {'Path': path, 'Type': 'Directory', 'Size': size})
+    print(results)
+    return results
 
 
-def save_results_to_csv():
-    pass
+def save_results_to_json(results, filename):
+    """Сохраняет результаты в формате JSON."""
+    with open(filename, 'w', encoding='utf-8') as file:
+        json.dump(results, file, ensure_ascii=False, indent=4)
 
 
-def save_results_to_pickle():
-    pass
+def save_results_to_csv(results, filename):
+    """Сохраняет результаты в формате CSV."""
+    fieldnames = ['Path', 'Type', 'Size']
+    with open(filename, 'w', newline='', encoding='utf-8') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        for result in results:
+            writer.writerow(result)
+
+
+def save_results_to_pickle(results, filename):
+    """Сохраняет результаты в формате Pickle."""
+    with open(filename, 'wb') as file:
+        pickle.dump(results, file)
 
 
 if __name__ == '__main__':
-    target_path = os.getcwd()
-    print(target_path)
-    traverse_directory(target_path)
+    directory_path = os.getcwd()
+    results = traverse_directory(directory_path)
+
+    save_results_to_json(results, 'results.json')
+    save_results_to_csv(results, 'results.csv')
+    save_results_to_pickle(results, 'results.pickle')

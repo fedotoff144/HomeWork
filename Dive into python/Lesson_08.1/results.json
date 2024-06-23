@@ -1,0 +1,162 @@
+[
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\pairs_num_name.json",
+        "Type": "File",
+        "Size": 443
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\pairs_num_name.txt",
+        "Type": "File",
+        "Size": 335
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\result.csv",
+        "Type": "File",
+        "Size": 984
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\result.json",
+        "Type": "File",
+        "Size": 1889
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\result.pickle",
+        "Type": "File",
+        "Size": 949
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\results.csv",
+        "Type": "File",
+        "Size": 2540
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\results.json",
+        "Type": "File",
+        "Size": 4896
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\results.pickle",
+        "Type": "File",
+        "Size": 2482
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\Task_01.py",
+        "Type": "File",
+        "Size": 1464
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\Task_02.py",
+        "Type": "File",
+        "Size": 1062
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\task_11.py",
+        "Type": "File",
+        "Size": 5877
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\task_12.py",
+        "Type": "File",
+        "Size": 209
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\.idea",
+        "Type": "Directory",
+        "Size": 8195
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\dir_01",
+        "Type": "Directory",
+        "Size": 1229
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\dir_02",
+        "Type": "Directory",
+        "Size": 0
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\modules",
+        "Type": "Directory",
+        "Size": 3896
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\.idea\\.gitignore",
+        "Type": "File",
+        "Size": 184
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\.idea\\csv-editor.xml",
+        "Type": "File",
+        "Size": 402
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\.idea\\easycode.ignore",
+        "Type": "File",
+        "Size": 111
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\.idea\\Lesson_08.1.iml",
+        "Type": "File",
+        "Size": 291
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\.idea\\misc.xml",
+        "Type": "File",
+        "Size": 1371
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\.idea\\modules.xml",
+        "Type": "File",
+        "Size": 281
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\.idea\\vcs.xml",
+        "Type": "File",
+        "Size": 191
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\.idea\\workspace.xml",
+        "Type": "File",
+        "Size": 4786
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\.idea\\inspectionProfiles",
+        "Type": "Directory",
+        "Size": 578
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\.idea\\inspectionProfiles\\profiles_settings.xml",
+        "Type": "File",
+        "Size": 174
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\.idea\\inspectionProfiles\\Project_Default.xml",
+        "Type": "File",
+        "Size": 404
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\dir_01\\some_text_01.txt",
+        "Type": "File",
+        "Size": 1229
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\dir_01\\dir_01_01",
+        "Type": "Directory",
+        "Size": 0
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\dir_01\\dir_01_01\\some_music.mp3",
+        "Type": "File",
+        "Size": 0
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\dir_02\\some_pict.jpg",
+        "Type": "File",
+        "Size": 0
+    },
+    {
+        "Path": "D:\\GeekBrains\\HomeWork\\Dive into python\\Lesson_08.1\\modules\\files_handling.py",
+        "Type": "File",
+        "Size": 3896
+    }
+]
