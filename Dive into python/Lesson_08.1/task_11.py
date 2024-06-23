@@ -38,17 +38,15 @@ import pickle
 
 
 def get_dir_size(path):
-    """Рассчитывает общий размер директории."""
     total_size = 0
-    for dirpath, dirnames, filenames in os.walk(path):
-        for f in filenames:
-            fp = os.path.join(dirpath, f)
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            fp = os.path.join(root, file)
             total_size += os.path.getsize(fp)
     return total_size
 
 
 def traverse_directory(directory):
-    """Рекурсивно обходит директорию и возвращает результаты."""
     results = []
     for root, dirs, files in os.walk(directory):
         for name in files + dirs:
@@ -60,18 +58,15 @@ def traverse_directory(directory):
                 size = get_dir_size(path)
                 results.append(
                     {'Path': path, 'Type': 'Directory', 'Size': size})
-    print(results)
     return results
 
 
 def save_results_to_json(results, filename):
-    """Сохраняет результаты в формате JSON."""
     with open(filename, 'w', encoding='utf-8') as file:
         json.dump(results, file, ensure_ascii=False, indent=4)
 
 
 def save_results_to_csv(results, filename):
-    """Сохраняет результаты в формате CSV."""
     fieldnames = ['Path', 'Type', 'Size']
     with open(filename, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -81,7 +76,6 @@ def save_results_to_csv(results, filename):
 
 
 def save_results_to_pickle(results, filename):
-    """Сохраняет результаты в формате Pickle."""
     with open(filename, 'wb') as file:
         pickle.dump(results, file)
 
