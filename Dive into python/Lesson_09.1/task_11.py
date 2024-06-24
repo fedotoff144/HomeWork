@@ -71,7 +71,7 @@ def save_to_json(func: Callable):
                 lst_4_write_json.append({"parameters": [a, b, c], "result": result})
             json.dump(lst_4_write_json, file_4_write)
 
-        return lst_4_write_json
+        return True
 
     return wrapper
 
@@ -86,6 +86,7 @@ def generate_csv_file(file_name: str, rows: int):
         for _ in range(rows):
             row = randint(-10, 10), randint(-10, 10), randint(-10, 10)
             f_writer.writerow(row)
+    return True
 
 
 @save_to_json
