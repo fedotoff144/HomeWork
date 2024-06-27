@@ -135,4 +135,3 @@ if __name__ == '__main__':
     print(f"Периметр rect3: {rect3.perimeter()}")
     rect4 = rect1 - rect2
     print(f"Ширина rect4: {rect4.width}")
-   
