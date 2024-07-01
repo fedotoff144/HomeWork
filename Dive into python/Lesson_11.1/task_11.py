@@ -48,4 +48,59 @@ print(repr(my_string))
 На выходе:
 MyStr('Мама мыла раму', 'Маршак')
 """
-# class MyStr(str):
+from datetime import datetime
+
+
+class MyStr(str):
+
+    def __new__(cls, value, author):
+        instance = super().__new__(cls, value)
+        instance.author = author
+        instance.time = datetime.now().strftime('%Y-%m-%d %H:%M')
+        return instance
+
+    def __str__(self):
+        return f"{super().__str__()} (Автор: {self.author}, Время создания: {self.time})"
+
+    def __repr__(self):
+        return f"MyStr('{super().__str__()}', '{self.author}')"
+
+
+if __name__ == '__main__':
+    event = MyStr("Завершилось тестирование", "John")
+    print(repr(event))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
