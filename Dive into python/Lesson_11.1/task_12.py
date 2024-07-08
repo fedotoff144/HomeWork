@@ -41,3 +41,16 @@ archive2 = Archive("Запись 2", 3.14)
 Text is Запись 1 and number is 42. Also ['Запись 1'] and [42]
 Text is Запись 2 and number is 3.14. Also ['Запись 1', 'Запись 2'] and [42, 3.14]
 """
+
+class Archive:
+
+    def __new__(cls, text, number):
+        instance = super().__new__(cls)
+        return cls.instance
+
+    def __init__(self):
+        self.text = text
+        self.number = number
+
+if __name__ == '__main__':
+    arch1 = Archive('some text')
