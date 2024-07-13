@@ -42,15 +42,36 @@ Text is Запись 1 and number is 42. Also ['Запись 1'] and [42]
 Text is Запись 2 and number is 3.14. Also ['Запись 1', 'Запись 2'] and [42, 3.14]
 """
 
+
 class Archive:
+    _instance = None
 
     def __new__(cls, text, number):
-        instance = super().__new__(cls)
-        return cls.instance
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+            cls._instance.archive_text = [text]
+            cls._instance.archive_number = [number]
+        else:
+            cls._instance.archive_text.append(text)
+            cls._instance.archive_number.append(number)
+            cls.text = text
+            cls.number = number
+        return cls._instance
 
-    def __init__(self):
+    def __init__(self, text: str, number: int | float):
         self.text = text
         self.number = number
 
+    def __str__(self):
+        return f'Text is {self.text} and number is {self.number}. ' \
+               f'Also {self.archive_text} and {self.archive_number}'
+
+    def __repr__(self):
+        return f'Archive({self.text}, {self.number})'
+
+
 if __name__ == '__main__':
-    arch1 = Archive('some text')
+    archive1 = Archive("Запись 1", 42)
+    print(archive1)
+    archive2 = Archive("Запись 2", 3.14)
+    print(archive2)
