@@ -2,6 +2,12 @@
 - Добавьте к задаче логирование ошибок и полезной информации.
 - Также реализуйте возможность запуска из командной строки с передачей параметров.
 """
+import logging, argparse
+
+
+FORMAT = ''
+logging.basicConfig(format=FORMAT, style='{', filename='log_task_01.log', filemode='a', encoding='utf-8')
+logger = logging.getLogger('task_02.py')
 
 
 class LotteryGame:
@@ -22,8 +28,26 @@ class LotteryGame:
             return 'Совпадающих чисел нет.'
 
 
+def parse():
+    parser = argparse.ArgumentParser(description='Task for intermediate certification',
+                            prog='LotteryGame',
+                            epilog='creates the LotteryGame class')
+    parser.add_argument('-c', '--class', metavar='CLASSNAME', nargs=1, type=str,
+                        help='Enter class name, for example: LotteryGame')
+    parser.add_argument('-l1', '--list1', metavar='LIST1', nargs=1, type=str,
+                        help='pass list of numbers as a string without spaces, for example: [1,2,3,4,5,6]')
+    parser.add_argument('-l2', '--list2', metavar='LIST2', nargs=1, type=str,
+                        help='pass list of numbers as a string without spaces, for example: [1,2,3,4,5,6]')
+    args = parser.parse_args()
+    print(args)
+
+
 if __name__ == '__main__':
     list1 = [3, 12, 8, 41, 7, 21, 9, 14, 5, 30]
     list2 = [9, 5, 6, 12, 14, 22, 17, 41, 8, 3]
-    game = LotteryGame(list1, list2)
-    game.compare_lists()
+    # game = LotteryGame(list1, list2)
+    # game.compare_lists()
+    parse()
+
+# command for run
+# python task_02.py -c LotteryGame -l1 [3,12,8,41,7,21,9,14,5,30] -l2 [9,5,6,12,14,22,17,41,8,3]

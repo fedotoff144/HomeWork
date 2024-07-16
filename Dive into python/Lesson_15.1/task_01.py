@@ -46,3 +46,6 @@ def parse():
 
 if __name__ == '__main__':
     print('OK...' if parse() else 'ERROR!')
+
+# command for run
+# python task_01.py -m [[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4]]
