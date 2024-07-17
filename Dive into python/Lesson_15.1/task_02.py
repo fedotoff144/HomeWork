@@ -7,7 +7,7 @@ import ast
 import logging
 
 
-FORMAT = '{levelname:<6}-  {asctime}. line: {lineno:03d}. Status: {msg}'
+FORMAT = '{levelname:<6}-  {asctime}, line: {lineno:03d}. Status: {msg}'
 logging.basicConfig(format=FORMAT, style='{', filename='log_task_02.log', filemode='a',
                     encoding='utf-8', level=logging.INFO)
 logger = logging.getLogger('task_02.py')
