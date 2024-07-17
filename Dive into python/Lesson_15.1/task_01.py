@@ -29,9 +29,9 @@ def transpose(matrix):
 
 
 def parse():
-    parser = argparse.ArgumentParser(description='Task for intermediate certification',
-                                     prog='transpose', epilog='Returns the transposed matrix')
     try:
+        parser = argparse.ArgumentParser(description='Task for intermediate certification',
+                                     prog='transpose', epilog='Returns the transposed matrix')
         parser.add_argument('-m', '--matrix', metavar='MATRIX', type=str, nargs=1,
                             default='[[1,2,3],[1,2,3],[1,2,3]]',
                             help='pass matrix as a string without spaces, for example: [[1,2,3],[1,2,3],[1,2,3]]')
