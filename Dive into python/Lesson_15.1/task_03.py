@@ -95,10 +95,10 @@ def parse():
         args = parser.parse_args()
         new_instance = AnimalFactory.create_animal(args.class_name[0], args.animal_name[0],
                                                    args.property[0])
-        logger.debug(f'OK. {new_instance}')
+        logger.debug(f'OK. Created {new_instance}')
         return new_instance
     except Exception as e:
-        logger.error(f'ERROR! {e}')
+        logger.error(f'ERROR! {e}. Received data:{args}')
 
 
 if __name__ == '__main__':

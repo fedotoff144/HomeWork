@@ -56,7 +56,7 @@ def parse():
 
         result = class_name(lottery_ticket, win_nums)
         # print(result.compare_lists())
-        logger.info(f'OK. Result: {result}')
+        logger.info(f'OK. Result is {result}')
         return result
     except Exception as e:
         logger.error(f'Error! {args}')
@@ -66,4 +66,4 @@ if __name__ == '__main__':
     print('OK...' if parse() else 'ERROR!')
 
 # command for run
-# python task_02.py -c LotteryGame -l1 [3,12,8,41,7,21,9,14,5,30] -l2 [9,5,6,12,14,22,17,41,8,3]
+# python task_02.py -n LotteryGame -lt [3,12,8,41,7,21,9,14,5,30] -wn [9,5,6,12,14,22,17,41,8,3]

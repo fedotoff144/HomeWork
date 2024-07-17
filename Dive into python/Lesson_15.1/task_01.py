@@ -38,7 +38,7 @@ def parse():
         args = parser.parse_args()
         matrix = ast.literal_eval(*args.matrix)
         result = transpose(matrix)
-        logger.info('OK')
+        logger.info(f'OK. received arguments: {matrix}, result: {result}')
         return result
     except Exception as e:
         logger.error(f'ERROR {e}')
