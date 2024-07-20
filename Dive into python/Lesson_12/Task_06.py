@@ -28,31 +28,31 @@ class Range:
         if not isinstance(value, int):
             raise ValueError('Invalid data type')
         if self.min_val is not None and value <= self.min_val:
-            raise ValueError(f'Values less than {self.min_val}')
-        if self.max_val is not None and value <= self.max_val:
+            raise ValueError(f'Values less or equal {self.min_val}')
+        if self.max_val is not None and value > self.max_val:
             raise ValueError(f'Values bigger than {self.max_val}')
 
 
 class Rectangle:
-    __slots__ = ('_a', '_b')
+    # __dict__ = ('a', 'b')
 
     a = Range(0)
     b = Range(0, 10)
 
     def __init__(self, a, b=None):
-        self._a = a
-        self._b = b if b else a
+        self.a = a
+        self.b = b if b else a
 
     def square(self):
-        return self._a * self._b
+        return self.a * self.b
 
     def perimetr(self):
-        return 2 * self._a + 2 * self._b
+        return 2 * self.a + 2 * self.b
 
 
 if __name__ == '__main__':
     rect_1 = Rectangle(4)
-    rect_2 = Rectangle(-1, 20)
+    rect_2 = Rectangle(2, 10)
 
     print(rect_1.square())
     print(rect_2.square())
