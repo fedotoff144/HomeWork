@@ -7,6 +7,8 @@
 
 class Rectangle:
 
+    __slots__ = ('_a', '_b')
+
     def __init__(self, a, b=None):
         self._a = a
         self._b = b if b else a
@@ -42,3 +44,5 @@ if __name__ == '__main__':
     print(f'rect_2= {rect_2.side_handler}')
     rect_2.side_handler = 3
     print(f'rect_2= {rect_2.side_handler}')
+    print(rect_2.perimetr())
+    # print(rect_1.__dict__)
