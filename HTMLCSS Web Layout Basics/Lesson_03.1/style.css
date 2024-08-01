@@ -8,6 +8,10 @@
     src: url('fonts/gilroy-semibold.ttf');
 }
 
+@font-face {
+    font-family: 'Gilroy-Medium';
+    src: url('fonts/gilroy-medium.ttf');
+}
 * {
     margin: 0;
     padding: 0;
@@ -26,13 +30,11 @@ header {
     max-width: 1289px;
     height: 114px;
     padding: 28px 200px 0 59px;
-    justify-content: space-between;
 }
 
 .container {
     max-width: 1319px;
     margin: 0 auto;
-    border: blueviolet 5px solid;
 }
 
 .logo {
@@ -43,7 +45,7 @@ header {
     height: 40px;
     display: flex;
     align-items: center;
-    margin-left: 77px;
+    margin-left: 135px;
 }
 
 .logo img {
@@ -59,6 +61,7 @@ nav {
     height: 40px;
     align-items: center;
     gap: 40px;
+    margin-left: 360px;
 }
 
 nav a {
@@ -90,6 +93,7 @@ nav a {
 }
 
 .left-block p {
+    font-family: Gilroy-Medium;
     font-size: 20px;
     color: #888888;
     margin-top: 17px;
