@@ -1,0 +1,132 @@
+@font-face {
+    font-family: 'Gilroy-Bold';
+    src: url('fonts/gilroy-bold.ttf');
+}
+
+@font-face {
+    font-family: 'Gilroy-SemiBold';
+    src: url('fonts/gilroy-semibold.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    max-width: 1289px;
+    height: 114px;
+    padding: 28px 200px 0 59px;
+    justify-content: space-between;
+}
+
+.container {
+    max-width: 1319px;
+    margin: 0 auto;
+    border: blueviolet 5px solid;
+}
+
+.logo {
+    font-family: Gilroy-Bold;
+    font-size: 24px;
+    line-height: 28.13px;
+    text-align: left;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin-left: 77px;
+}
+
+.logo img {
+    margin-right: 15px;
+}
+
+.marker {
+    color: darkorange;
+}
+
+nav {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    gap: 40px;
+}
+
+nav a {
+    font-family: Gilroy-SemiBold;
+    font-size: 14px;
+    line-height: 16.41px;
+    text-align: left;
+    color: black;
+}
+
+.main {
+    display: flex;
+    width: 1274px;
+    margin: 21px auto 15px auto;
+}
+
+.left-block {
+    width: 589px;
+    height: 494px;
+}
+
+.left-block h1 {
+    font-family: Gilroy-Bold;
+    font-size: 60px;
+    line-height: 70.31px;
+    text-align: left;
+    margin-top: 59px;
+    margin-left: 41px;
+}
+
+.left-block p {
+    font-size: 20px;
+    color: #888888;
+    margin-top: 17px;
+    margin-left: 41px;
+}
+
+.buttons {
+    font-family: Gilroy-Bold;
+    font-size: 15px;
+    line-height: 17.58px;
+    padding: 23px 49px 23px 23px;
+    margin-top: 16px;
+    margin-left: 20px;
+}
+
+.buttons button {
+    width: 140px;
+    height: 50px;
+    border-radius: 50px;
+    background: #F25822;
+    border: none;
+    font-family: inherit;
+    color: #e7e5e5;
+    margin-right: 72px;
+}
+
+.buttons a {
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 17.58px;
+    text-align: left;
+    color: #AAAAAA;
+}
+
+.logos {
+    display: flex;
+    width: 1240px;
+    padding: 59px 27px 49px 13px;
+    gap: 48px;
+}
